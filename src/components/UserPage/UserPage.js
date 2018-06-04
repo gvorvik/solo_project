@@ -14,6 +14,7 @@ const mapStateToProps = state => ({
 class UserPage extends Component {
   componentDidMount() {
     this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
+    this.props.dispatch({type: USER_ACTIONS.FETCH_STUDENTS});
   }
 
   componentDidUpdate() {
@@ -36,7 +37,7 @@ class UserPage extends Component {
           <h1
             id="welcome"
           >
-            Welcome, { this.props.user.userName }!
+            Welcome, {this.props.user.userName}!
           </h1>
           <button
             onClick={this.logout}
@@ -50,7 +51,7 @@ class UserPage extends Component {
     return (
       <div>
         <Nav />
-        { content }
+        {content}
       </div>
     );
   }

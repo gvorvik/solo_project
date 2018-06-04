@@ -9,7 +9,15 @@ const router = express.Router();
 // Handles Ajax request for user information if user is authenticated
 router.get('/', rejectUnauthenticated, (req, res) => {
   // Send back user object from database
-  res.send(req.user);
+  pool.query(`SELECT "first_name" FROM "person" WHERE id = $1`, [req.user.id])
+  .then((res) => {
+    req.user = {...req.user, firstName: res.rows[0].first_name };
+    res.send(req.user);
+  })
+  .catch((err) => {
+    console.log(req.user);
+    res.send(req.user);
+  })
 });
 
 // Handles POST request with new user data
@@ -18,11 +26,13 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 router.post('/register', (req, res, next) => {
   console.log('req: ', req.body);
   
+  const firstName = req.body.firstName;
+  const lastName = req.body.lastName;
   const username = req.body.username;
   const password = encryptLib.encryptPassword(req.body.password);
 
-  const queryText = 'INSERT INTO person (username, password) VALUES ($1, $2) RETURNING id';
-  pool.query(queryText, [username, password])
+  const queryText = 'INSERT INTO person (username, password, first_name, last_name) VALUES ($1, $2, $3, $4) RETURNING id';
+  pool.query(queryText, [username, password, firstName, lastName])
     .then(() => { res.sendStatus(201); })
     .catch((err) => { next(err); });
 });

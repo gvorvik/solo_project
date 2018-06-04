@@ -9,6 +9,8 @@ class RegisterPage extends Component {
     this.state = {
       username: '',
       password: '',
+      firstName: '',
+      lastName: '',
       message: '',
     };
   }
@@ -24,6 +26,8 @@ class RegisterPage extends Component {
       const body = {
         username: this.state.username,
         password: this.state.password,
+        firstName: this.state.firstName,
+        lastName: this.state.lastName
       };
 
       // making the request to the server to post the new user's registration
@@ -71,6 +75,28 @@ class RegisterPage extends Component {
         {this.renderAlert()}
         <form onSubmit={this.registerUser}>
           <h1>Register User</h1>
+          <div>
+            <label htmlFor="password">
+              First Name:
+              <input
+                type="firstName"
+                name="firstName"
+                value={this.state.firstName}
+                onChange={this.handleInputChangeFor('firstName')}
+              />
+            </label>
+          </div>
+          <div>
+            <label htmlFor="password">
+              Last Name:
+              <input
+                type="lastName"
+                name="lastName"
+                value={this.state.lastName}
+                onChange={this.handleInputChangeFor('lastName')}
+              />
+            </label>
+          </div>
           <div>
             <label htmlFor="username">
               Username:
