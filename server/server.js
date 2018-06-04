@@ -10,6 +10,7 @@ const passport = require('./strategies/user.strategy');
 
 // Route includes
 const pool = require('./modules/pool');
+const studentRouter = require('./routes/student.router');
 const userRouter = require('./routes/user.router');
 
 // Body parser middleware
@@ -25,14 +26,8 @@ app.use(passport.session());
 
 /* Routes */
 app.use('/api/user', userRouter);
+app.use('/api/students', studentRouter);
 
-app.get('/api/students', (req, res) => {
-  pool.query(`SELECT * FROM "student"`)
-  .then((results) => {
-    res.send(results.rows);
-  })
-  .catch(err => res.sendStatus(500))
-});
 
 // Serve static files
 app.use(express.static('build'));
