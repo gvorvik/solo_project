@@ -45,6 +45,10 @@ function* fetchStudents() {
   try {
     const students = yield call(axios.get, '/api/students');
     console.log(students.data);
+    yield put({
+      type: 'SET_STUDENTS',
+      payload: students.data
+    });
   } catch(err) {
     console.log(err);
   }
