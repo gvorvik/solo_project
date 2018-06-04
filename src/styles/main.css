@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
@@ -78,3 +83,14 @@ li a:hover {
     text-decoration: underline;
     color: #eee;
 }
+
+/* Nav Bar Styling */
+#userImageWrapper {
+    height: 150px;
+    text-align: center;
+}
+
+ #userPhoto {
+     height: 100px;
+     border-radius: 50%;
+ }

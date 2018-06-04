@@ -42,9 +42,7 @@ class UserPage extends Component {
           >
             Welcome, {this.props.user.userName}!
           </h1>
-
-        <StudentList />
-
+          <StudentList />
           <button
             onClick={this.logout}
           >
