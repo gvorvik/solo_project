@@ -9,7 +9,7 @@ const mapStateToProps = reduxState => ({
 class StudentList extends Component {
 
     render() {
-        console.log(this.props.reduxState.user.studentReducer);
+        console.log(this.props.reduxState.student.studentReducer);
 
         let students = this.props.reduxState.user.studentReducer.map((student) => {
             return <p key={student.id}>{student.first_name} {student.last_name} in grade {student.grade} has a goal of {student.goal} words per minute</p>

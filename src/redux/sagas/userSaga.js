@@ -1,5 +1,4 @@
-import { put, takeLatest, takeEvery, call } from 'redux-saga/effects';
-import axios from 'axios';
+import { put, takeLatest,} from 'redux-saga/effects';
 import { USER_ACTIONS } from '../actions/userActions';
 import { callUser } from '../requests/userRequests';
 
@@ -41,22 +40,8 @@ function* fetchUser() {
   and only the latest one will be run.
 */
 
-function* fetchStudents() {
-  try {
-    const students = yield call(axios.get, '/api/students');
-    console.log(students.data);
-    yield put({
-      type: 'SET_STUDENTS',
-      payload: students.data
-    });
-  } catch(err) {
-    console.log(err);
-  }
-}
-
 function* userSaga() {
   yield takeLatest(USER_ACTIONS.FETCH_USER, fetchUser);
-  yield takeEvery(USER_ACTIONS.FETCH_STUDENTS, fetchStudents);
 }
 
 export default userSaga;

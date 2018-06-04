@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Nav from '../../components/Nav/Nav';
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
+import { STUDENT_ACTIONS } from '../../redux/actions/studentActions';
 import { triggerLogout } from '../../redux/actions/loginActions';
 
 import StudentList from '../StudentList/StudentList';
@@ -16,7 +17,7 @@ const mapStateToProps = state => ({
 class UserPage extends Component {
   componentDidMount() {
     this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
-    this.props.dispatch({type: USER_ACTIONS.FETCH_STUDENTS});
+    this.props.dispatch({type: STUDENT_ACTIONS.FETCH_STUDENTS});
   }
 
   componentDidUpdate() {
