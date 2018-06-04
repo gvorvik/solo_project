@@ -15,6 +15,11 @@ const Nav = () => (
             Admin
           </Link>
         </li>
+        <li>
+          <Link to="/student">
+            Student
+          </Link>
+        </li>
       </ul>
     </div>
   </div>
