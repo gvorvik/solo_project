@@ -12,6 +12,15 @@ const userName = (state = null, action) => {
   }
 };
 
+const welcomeUser = (state = {}, action) => {
+  switch(action.type) {
+    case USER_ACTIONS.SET_WELCOME_INFO:
+      return action.payload;
+  default:
+    return state;
+  }
+};
+
 const isLoading = (state = false, action) => {
   switch (action.type) {
     case USER_ACTIONS.REQUEST_START:
@@ -26,4 +35,5 @@ const isLoading = (state = false, action) => {
 export default combineReducers({
   userName,
   isLoading,
+  welcomeUser,
 });

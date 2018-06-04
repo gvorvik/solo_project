@@ -1,15 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import UserImage from '../UserImage/UserImage';
+
 
 const Nav = () => (
   <div className="navbar">
     <div>
-      <ul>
-        <li>
-          <UserImage />
-        </li>
+      <ul id="navbarList">
         <li>
           <Link to="/user">
             Home

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import StudentCard from '../StudentCard/StudentCard';
 
 const mapStateToProps = reduxState => ({
     reduxState,
@@ -15,8 +16,16 @@ class StudentList extends Component {
     render() {
 
         let students = this.props.reduxState.student.studentReducer.map((student) => {
-            return <p key={student.id}>{student.first_name} {student.last_name} in grade {student.grade} has a goal of {student.goal} words per minute
-                    <button onClick={() => {this.navigateToStudentPage(student.id)}}>Go To Student</button></p>
+            return <StudentCard
+                key={student.id}
+                id={student.id}
+                firstName={student.first_name}
+                lastName={student.last_name}
+                grade={student.grade}
+                goal={student.goal}
+                initialScore={student.initial_score}
+
+            />
         });
 
         return (

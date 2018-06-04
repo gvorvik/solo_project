@@ -1,4 +1,5 @@
-import { put, takeLatest,} from 'redux-saga/effects';
+import { put, takeLatest, takeEvery, call} from 'redux-saga/effects';
+import axios from 'axios';
 import { USER_ACTIONS } from '../actions/userActions';
 import { callUser } from '../requests/userRequests';
 
@@ -40,8 +41,21 @@ function* fetchUser() {
   and only the latest one will be run.
 */
 
+function* fetchWelcomeInfo() {
+  try{
+    const welcomeInfo = yield call(axios.get, '/api/user/welcome');
+    yield put({
+      type: USER_ACTIONS.SET_WELCOME_INFO,
+      payload: welcomeInfo.data[0]
+    });
+  } catch(err) {
+    console.log(err);
+  }
+}
+
 function* userSaga() {
   yield takeLatest(USER_ACTIONS.FETCH_USER, fetchUser);
+  yield takeEvery(USER_ACTIONS.FETCH_WELCOME_INFO, fetchWelcomeInfo);
 }
 
 export default userSaga;

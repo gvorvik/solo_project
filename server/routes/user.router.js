@@ -9,22 +9,7 @@ const router = express.Router();
 // Handles Ajax request for user information if user is authenticated
 router.get('/', rejectUnauthenticated, (req, res) => {
   // Send back user object from database
-
   res.send(req.user);
-  // pool.query(`SELECT "first_name", "last_name" FROM "person" WHERE id = $1`, [req.user.id])
-  // .then((res) => {
-  //   let teacher = {
-  //     ...req.user,
-  //     firstName: res.rows[0].first_name,
-  //     lastName: res.rows[0].last_name,
-  //   }
-  //   console.log(teacher);
-  //   res.send(teacher);
-  // })
-  // .catch((err) => {
-  //   // console.log(req.user);
-  //   res.send(req.user);
-  // })
 });
 
 // Handles POST request with new user data
@@ -57,6 +42,17 @@ router.get('/logout', (req, res) => {
   // Use passport's built-in method to log out the user
   req.logout();
   res.sendStatus(200);
+});
+
+router.get('/welcome', (req, res) => {
+  pool.query(`SELECT "first_name", "last_name", "img_path" FROM "person"
+              WHERE "id" = $1`, [req.user.id])
+  .then((result) => {
+    res.send(result.rows);
+  })
+  .catch((err) => {
+    res.sendStatus(500);
+  });
 });
 
 module.exports = router;

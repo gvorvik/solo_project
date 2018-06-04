@@ -1,31 +1,28 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import {USER_ACTIONS} from '../../redux/actions/userActions';
+
 
 const mapStateToProps = reduxState => ({
     reduxState,
 });
 
+
 class UserImage extends Component {
 
-    constructor(props) {
-        super(props)
-
-        this.state = {
-            image: '',
-        }
+    componentDidMount() {
+        this.props.dispatch({ type: USER_ACTIONS.FETCH_WELCOME_INFO });
     }
-
-    // componentDidMount() {
-    //     this.props.dispatch({ type: USER_ACTIONS.FETCH_IMAGE });
-    // }
-
+    
     render() {
+        
+        const imgPath = `images/${this.props.reduxState.user.welcomeUser.img_path}`;
 
         return (
             <div id="userImageWrapper">
-                <img src="images/greg_orvik.jpg" alt="user" id="userPhoto"/>
-                <h3>Logged in as Greg</h3>
+                <img src={imgPath} alt="user" id="userPhoto"/>
+                <h3>Hello Mr. {this.props.reduxState.user.welcomeUser.last_name}</h3>
             </div>
         );
     }
