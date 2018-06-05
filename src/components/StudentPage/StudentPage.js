@@ -10,23 +10,27 @@ const mapStateToProps = reduxState => ({
 });
 
 class StudentPage extends Component {
-
     constructor(props) {
         super(props);
 
         this.state = {
-            studentID: 1,
+            studentScores: [],
         }
     }
 
     componentDidMount() {
         this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
+        this.getStudentScores();
     }
 
     componentDidUpdate() {
         if (!this.props.reduxState.user.isLoading && this.props.reduxState.user.userName === null) {
             this.props.history.push('home');
         }
+    }
+
+    getStudentScores = () => {
+        console.log('get student scores ran');
     }
 
 
@@ -38,6 +42,7 @@ class StudentPage extends Component {
                 <div>
                     <Nav />
                     <h1>Student Page</h1>
+                    <p>The current student ID is {this.props.reduxState.student.studentPageID}</p>
                 </div>
             );
         }
