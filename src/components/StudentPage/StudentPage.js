@@ -36,7 +36,9 @@ class StudentPage extends Component {
             url: `/api/students/scores/${id}`
         })
         .then((response) => {
-            console.log(response);
+            this.setState({
+                studentScores: response.data,
+            });
         })
         .catch((error) => {
             console.log(error);
@@ -47,12 +49,19 @@ class StudentPage extends Component {
     render() {
         let content = null;
 
+        let scores = this.state.studentScores.map((score) => {
+            return <li>{score.score}</li>
+        })
+
         if (this.props.reduxState.user.userName) {
             content = (
                 <div>
                     <Nav />
                     <h1>Student Page</h1>
                     <p>The current student ID is {this.props.reduxState.student.studentPageID}</p>
+                    <ul>
+                        {scores}
+                    </ul>
                 </div>
             );
         }
