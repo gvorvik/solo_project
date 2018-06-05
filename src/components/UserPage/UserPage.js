@@ -8,6 +8,7 @@ import { STUDENT_ACTIONS } from '../../redux/actions/studentActions';
 import { triggerLogout } from '../../redux/actions/loginActions';
 
 import StudentList from '../StudentList/StudentList';
+import NewStudentForm from '../NewStudentForm/NewStudentForm';
 
 
 const mapStateToProps = state => ({
@@ -38,6 +39,7 @@ class UserPage extends Component {
       content = (
         <div>
           <StudentList />
+          <NewStudentForm />
           <button
             onClick={this.logout}
           >
