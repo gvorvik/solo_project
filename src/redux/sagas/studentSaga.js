@@ -18,8 +18,10 @@ function* fetchStudents() {
 
 function* addStudent(action) {
   try{
-    const response = yield call(axios.post, '/api/students', action.payload);
-    console.log(response);
+    yield call(axios.post, '/api/students', action.payload);
+    yield put({
+      type: STUDENT_ACTIONS.FETCH_STUDENTS
+    });
   }catch (error) {
     console.log(error);
   }
