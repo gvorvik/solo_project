@@ -16,8 +16,18 @@ function* fetchStudents() {
   }
 }
 
+function* addStudent(action) {
+  try{
+    const response = yield call(axios.post, '/api/students', action.payload);
+    console.log(response);
+  }catch (error) {
+    console.log(error);
+  }
+}
+
 function* studentSaga() {
   yield takeEvery(STUDENT_ACTIONS.FETCH_STUDENTS, fetchStudents);
+  yield takeEvery(STUDENT_ACTIONS.ADD_STUDENT, addStudent);
 }
 
 

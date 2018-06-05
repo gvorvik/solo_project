@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import {STUDENT_ACTIONS} from '../../redux/actions/studentActions';
+
 
 class NewStudentForm extends Component {
     constructor(props) {
@@ -24,7 +26,20 @@ class NewStudentForm extends Component {
 
     handleClick = (event) => {
         event.preventDefault();
+        const studentToSend = this.state;
         console.log(this.state);
+        const action = {
+            type: STUDENT_ACTIONS.ADD_STUDENT,
+            payload: studentToSend
+        }
+        this.props.dispatch(action);
+        this.setState({
+            firstName: '',
+            lastName: '',
+            grade: '',
+            goal: 0,
+            initialScore: 0,
+        });
     }
 
   render() {
