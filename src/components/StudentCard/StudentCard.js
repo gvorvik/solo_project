@@ -4,17 +4,25 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-// import Button from '@material-ui/core/Button';
+import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Link } from 'react-router-dom';
 
+import {STUDENT_ACTIONS} from '../../redux/actions/studentActions';
 
-
+const mapStateToProps = reduxState => ({
+  reduxState,
+});
 
 class StudentCard extends Component {
 
-  handleClick = (id) => {
+  sendStudentIdToReduxStore = (id) => {
     console.log('click logged', id);
+    const action = {
+      type: STUDENT_ACTIONS.SET_STUDENT_ID_IN_STORE,
+      payload: id,
+    }
+    this.props.dispatch(action);
   }
 
   render() {
@@ -38,6 +46,7 @@ class StudentCard extends Component {
             <Link to="/student">
               Go To Student
             </Link>
+            <Button onClick={() => this.sendStudentIdToReduxStore(this.props.id)}>TEST</Button>
           </CardActions>
         </Card>
       </div>
@@ -45,4 +54,4 @@ class StudentCard extends Component {
   }
 }
 
-export default connect()(StudentCard);
+export default connect(mapStateToProps)(StudentCard);

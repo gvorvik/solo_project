@@ -25,6 +25,6 @@ router.post('/', (req, res) => {
     res.send(results.rows);
   })
   .catch(err => res.sendStatus(500))
-})
+});
 
 module.exports = router;

@@ -10,6 +10,16 @@ const studentReducer = (state = [], action) => {
   }
 }
 
+const studentPageID = (state = 1, action) => {
+  switch (action.type) {
+    case STUDENT_ACTIONS.SET_STUDENT_ID_IN_STORE:
+      return action.payload;
+    default:
+      return state;
+  }
+}
+
 export default combineReducers({
   studentReducer,
+  studentPageID,
 });

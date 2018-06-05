@@ -24,7 +24,7 @@ class NewStudentForm extends Component {
         });
     };
 
-    handleClick = (event) => {
+    postStudent = (event) => {
         event.preventDefault();
         const studentToSend = this.state;
         console.log(this.state);
@@ -52,7 +52,7 @@ class NewStudentForm extends Component {
             <input onChange={this.handleChange} type="text" name="grade" placeholder="Grade"/>
             <input onChange={this.handleChange} type="number" name="goal" placeholder="Goal" />
             <input onChange={this.handleChange} type="number" name="initialScore" placeholder="Initial Score" />
-            <input onClick={this.handleClick} type="submit"/>
+            <input onClick={this.postStudent} type="submit"/>
         </form>
       </div>
     );
