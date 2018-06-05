@@ -11,9 +11,18 @@ router.get('/', (req, res) => {
     .then((results) => {
       res.send(results.rows);
     })
-    .catch(err => res.sendStatus(500))
+    .catch(err => res.sendStatus(500));
   });
 
+router.get('/scores/:id', (req,res) => {
+  const studentID = Number(req.params.id);
+  queryText = `SELECT "score" from "scores" WHERE "student_id" = $1`;
+  pool.query(queryText, [studentID])
+  .then((results) => {
+    res.send(results.rows);
+  })
+  .catch(err => res.sendStatus(500));
+})
 
 router.post('/', (req, res) => {
   const student = req.body;

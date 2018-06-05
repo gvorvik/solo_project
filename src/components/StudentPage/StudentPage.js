@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 import Nav from '../Nav/Nav';
@@ -20,7 +21,7 @@ class StudentPage extends Component {
 
     componentDidMount() {
         this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
-        this.getStudentScores();
+        this.getStudentScores(this.props.reduxState.student.studentPageID);
     }
 
     componentDidUpdate() {
@@ -29,8 +30,17 @@ class StudentPage extends Component {
         }
     }
 
-    getStudentScores = () => {
-        console.log('get student scores ran');
+    getStudentScores = (id) => {
+        axios({
+            method: 'GET',
+            url: `/api/students/scores/${id}`
+        })
+        .then((response) => {
+            console.log(response);
+        })
+        .catch((error) => {
+            console.log(error);
+        })
     }
 
 
