@@ -22,7 +22,6 @@ class UserImage extends Component {
         return (
             <div id="userImageWrapper">
                 <img src={imgPath} alt="user" id="userPhoto"/>
-                <h3>Hello Mr. {this.props.reduxState.user.welcomeUser.last_name}</h3>
             </div>
         );
     }

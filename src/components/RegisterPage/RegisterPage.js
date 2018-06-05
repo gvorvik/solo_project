@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import Header from '../Header/Header';
 
 class RegisterPage extends Component {
   constructor(props) {
@@ -72,6 +73,7 @@ class RegisterPage extends Component {
   render() {
     return (
       <div>
+        <Header title="Reading Tracker"/>
         {this.renderAlert()}
         <form onSubmit={this.registerUser}>
           <h1>Register User</h1>
