@@ -46,7 +46,7 @@ class NewStudentForm extends Component {
         return (
             <div>
                 <h1 id="formHeader">Add New Student</h1>
-                <form id="newStudentForm">
+                <form className="dataForm">
                     <div id="formInputWrapper">
 
                         <label className="formLabel" htmlFor="firstName">First Name</label>
@@ -66,7 +66,7 @@ class NewStudentForm extends Component {
                         <label className="formLabel" htmlFor="initialScore">Initial Score</label>
                         <input onChange={this.handleChange} type="number" name="initialScore" id="initialScore" placeholder="Initial Score" />
                     </div>
-                    <input onClick={this.postStudent} type="submit" />
+                    <input onClick={this.postStudent} className="submitData" type="submit" />
                 </form>
             </div>
         );

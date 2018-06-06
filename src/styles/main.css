@@ -106,7 +106,8 @@ nav {
  }
 
  #navbarList li a:hover,
- #navbarList li a:active {
+ #navbarList li a:active,
+ #logoutBtn:hover {
     border-bottom: 2px solid #e67e22;
     padding-bottom: 1px;
     transition: border-bottom 0.2s, color 0.2s;
@@ -129,7 +130,7 @@ nav {
 /* ------------------------------ */
 /*STUDENT FORM STYLING*/
 /* ------------------------------ */
-#newStudentForm {
+.dataForm {
     width: 60%;
     margin: 0 auto;
     text-transform: uppercase;
@@ -146,8 +147,9 @@ nav {
     margin-top: 30px;
 }
 
-#newStudentForm input[type=text],
-#newStudentForm input[type=number] {
+.dataForm input[type=text],
+.dataForm input[type=number],
+.dataForm textarea {
     border-radius: 3px;
     border: 1px solid #ccc;
     padding: 10px;
@@ -157,12 +159,35 @@ nav {
     font-size: 1em;
 }
 
+input[type=submit] {
+    padding: 10px 30px;
+    font-size: 1.2em;
+    background-color: #e67e22;
+    border-radius: 3px;
+    color: #fff;
+}
 
-
-
+input[type=submit]:hover,
+input[type=submit]:active {
+    background-color: #cf6d17;
+}
 
 
 /* ------------------------------ */
-/*CARD STYLING*/
+/*SCORE FORM STYLING*/
 /* ------------------------------ */
+
+textarea {
+    height: 100px;
+}
+
+input[type=date] {
+    display: block;
+    font-size: 1em;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 15px 0;
+}
+
 

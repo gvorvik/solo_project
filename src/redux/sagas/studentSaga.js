@@ -27,9 +27,18 @@ function* addStudent(action) {
   }
 }
 
+function* addStudentScore(action) {
+  try {
+    console.log('Add student score ran');
+  } catch(error) {
+    console.log(error);
+  }
+}
+
 function* studentSaga() {
   yield takeEvery(STUDENT_ACTIONS.FETCH_STUDENTS, fetchStudents);
   yield takeEvery(STUDENT_ACTIONS.ADD_STUDENT, addStudent);
+  yield takeEvery(STUDENT_ACTIONS.ADD_SCORE, addStudentScore);
 }
 
 
