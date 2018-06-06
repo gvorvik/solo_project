@@ -18,12 +18,12 @@ class StudentPage extends Component {
 
         this.state = {
             studentScores: [],
+            chartData: {}
         }
     }
 
     componentDidMount() {
         this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
-        this.getStudentScores(this.props.reduxState.student.studentPageID);
     }
 
     componentDidUpdate() {
@@ -39,7 +39,17 @@ class StudentPage extends Component {
         })
         .then((response) => {
             this.setState({
-                studentScores: response.data,
+                studentScores: response.data.map(score => score.score),
+                chartData: {
+                    labels: [1, 2, 3],
+                    datasets: [
+                        {
+                            label: 'Population',
+                            data: response.data.map(score => score.score),
+                            backgroundColor: 'rgba(255, 99, 132, 0.6)'
+                        }
+                    ]
+                }
             });
         })
         .catch((error) => {
@@ -65,7 +75,7 @@ class StudentPage extends Component {
                         {scores}
                     </ul>
                     <ScoreChart 
-                        studentScores = {this.state.studentScores}
+                        getScores = {this.getStudentScores}
                     />
                     <NewScoreForm 
                         getScores = {this.getStudentScores}
