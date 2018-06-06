@@ -64,7 +64,9 @@ class StudentPage extends Component {
                     <ul>
                         {scores}
                     </ul>
-                    <ScoreChart />
+                    <ScoreChart 
+                        studentScores = {this.state.studentScores}
+                    />
                     <NewScoreForm 
                         getScores = {this.getStudentScores}
                     />
