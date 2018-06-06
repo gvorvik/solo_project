@@ -49,8 +49,8 @@ class StudentPage extends Component {
     render() {
         let content = null;
 
-        let scores = this.state.studentScores.map((score) => {
-            return <li>{score.score}</li>
+        let scores = this.state.studentScores.map((score, i) => {
+            return <li key={i}>{score.score}</li>
         })
 
         if (this.props.reduxState.user.userName) {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Grid from '@material-ui/core/Grid';
 
 import StudentCard from '../StudentCard/StudentCard';
 
@@ -9,14 +10,10 @@ const mapStateToProps = reduxState => ({
 
 class StudentList extends Component {
 
-    navigateToStudentPage = (id) => {
-        console.log(`button was clicked`, id);
-    }
-
     render() {
 
         let students = this.props.reduxState.student.studentReducer.map((student) => {
-            return <StudentCard
+            return <Grid key={student.id} item xs={12} sm={6} md={4}> <StudentCard
                 key={student.id}
                 id={student.id}
                 firstName={student.first_name}
@@ -25,12 +22,14 @@ class StudentList extends Component {
                 goal={student.goal}
                 initialScore={student.initial_score}
 
-            />
+            /></Grid>
         });
 
         return (
             <div>
-                {students}
+                <Grid container spacing={32}>
+                    {students}
+                </Grid>
             </div>
         );
     }

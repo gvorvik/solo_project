@@ -156,9 +156,4 @@ nav {
 /* ------------------------------ */
 /*CARD STYLING*/
 /* ------------------------------ */
- .cardWrapper {
-    max-height: 400px;
-    width: 250px;
-    display: inline-block;
-    margin: 20px;
- }
+

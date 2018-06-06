@@ -28,7 +28,7 @@ class StudentCard extends Component {
   render() {
     return (
       <div className="cardWrapper">
-        <Card style={{ maxWidth: "245px" }}>
+        <Card style={{ maxWidth: "245px", margin: "0 auto"}}>
           <CardMedia
             style={{ height: "250px" }}
             image="/images/greg_orvik.jpg"
