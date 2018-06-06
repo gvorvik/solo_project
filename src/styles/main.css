@@ -27,10 +27,12 @@ body {
     border-radius: 2px;
 }
 
+.loginForm input {
+    font-size: 1em;
+}
+
 input {
     margin: 5px;
-    margin-bottom: 10px;
-    padding-bottom: 10px;
 }
 
 label {
@@ -116,6 +118,13 @@ nav {
     transition: border-bottom 0.2s, color 0.2s;
  }
 
+ #logoutBtn {
+    background-color: #525252;
+    border: none;
+    color: white;
+    font-size: 1.35em;
+    text-transform: uppercase;
+ }
 
 /* ------------------------------ */
 /*STUDENT FORM STYLING*/

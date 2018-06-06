@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import { triggerLogout } from '../../redux/actions/loginActions';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 
 const mapStateToProps = reduxState => ({
@@ -12,6 +13,11 @@ class Nav extends Component {
 
   componentDidMount() {
     this.props.dispatch({ type: USER_ACTIONS.FETCH_WELCOME_INFO });
+  }
+
+  logout = () => {
+    this.props.dispatch(triggerLogout());
+    // this.props.history.push('home');
   }
 
   render() {
@@ -36,6 +42,14 @@ class Nav extends Component {
           <Link to="/student">
             Student
           </Link>
+        </li>
+        <li>
+          <button
+            id="logoutBtn"
+            onClick={this.logout}
+          >
+            Log Out
+          </button>
         </li>
       </ul>
     </div>

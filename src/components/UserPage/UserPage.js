@@ -5,7 +5,6 @@ import Nav from '../../components/Nav/Nav';
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 import { STUDENT_ACTIONS } from '../../redux/actions/studentActions';
-import { triggerLogout } from '../../redux/actions/loginActions';
 
 import StudentList from '../StudentList/StudentList';
 import NewStudentForm from '../NewStudentForm/NewStudentForm';
@@ -27,11 +26,6 @@ class UserPage extends Component {
     }
   }
 
-  logout = () => {
-    this.props.dispatch(triggerLogout());
-    // this.props.history.push('home');
-  }
-
   render() {
     let content = null;
 
@@ -40,11 +34,6 @@ class UserPage extends Component {
         <div>
           <StudentList />
           <NewStudentForm />
-          <button
-            onClick={this.logout}
-          >
-            Log Out
-          </button>
         </div>
       );
     }
