@@ -44,6 +44,7 @@ const App = () => (
 
       </Switch>
     </Router>
+    <footer></footer>
   </div>
 );
 

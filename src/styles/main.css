@@ -13,7 +13,7 @@ body {
 
 
 .instructions {
-    background-color: #525252;
+    background-color: #363636;
     padding: 5px;
     color: #ece7e7;
 }
@@ -64,8 +64,8 @@ input[type="submit"] {
 /* ------------------------------ */
 nav {
     width: 100%;
-    background-color: #525252;
-    height: 90px;
+    background-color: #363636;
+    height: 100px;
     margin: auto auto; 
     border-radius: 0px;
     text-align: center;
@@ -82,7 +82,8 @@ nav {
      width: auto;
      border-radius: 50%;
      float: left;
-     margin-top: 5px;
+     margin-top: 10px;
+     border: 2px solid #e67e22;
  }
 
 #navbarList {
@@ -120,7 +121,7 @@ nav {
  }
 
  #logoutBtn {
-    background-color: #525252;
+    background-color: #363636;
     border: none;
     color: white;
     font-size: 1.35em;
@@ -201,8 +202,13 @@ input[type=date] {
 }
 
 /* ------------------------------ */
-/* SCORE FORM STYLING */
+/* FOOTER STYLING */
 /* ------------------------------ */
 
+footer {
+    height: 150px;
+    background-color: #363636;
+    margin-top: 30px;
+}
 
 

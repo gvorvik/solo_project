@@ -43,7 +43,7 @@ class ScoreChart extends Component {
                     }),
                     datasets: [
                         {
-                            label: 'Population',
+                            label: 'Words Per Minute',
                             data: response.data.map(score => score.score),
                             backgroundColor: 'rgba(230, 126, 34, 0.6)'
                         }
