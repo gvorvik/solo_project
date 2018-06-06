@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import NewScoreForm from '../NewScoreForm/NewScoreForm';
 
 import { Bar, Line, Pie } from 'react-chartjs-2';
 
@@ -58,6 +59,7 @@ class ScoreChart extends Component {
 
     render() {
         return (
+        <div>
             <div className="chart">
               <Line 
                 data={this.state.chartData}
@@ -78,6 +80,8 @@ class ScoreChart extends Component {
                 }}
               />
             </div>
+            <NewScoreForm getScores={this.getStudentScores}/>
+        </div>
         );
     }
 }
