@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import ScoreChart from '../ScoreChart/ScoreChart';
 import NewScoreForm from '../NewScoreForm/NewScoreForm';
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
@@ -63,6 +64,7 @@ class StudentPage extends Component {
                     <ul>
                         {scores}
                     </ul>
+                    <ScoreChart />
                     <NewScoreForm 
                         getScores = {this.getStudentScores}
                     />

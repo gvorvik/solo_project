@@ -28,7 +28,7 @@ class NewScoreForm extends Component {
     postScore = (event) => {
         event.preventDefault();
         const scoreToSend = this.state;
-        console.log(scoreToSend);
+        
         axios({
             method: 'POST',
             url: '/api/students/score',
@@ -39,7 +39,7 @@ class NewScoreForm extends Component {
             this.props.getScores(this.props.reduxState.student.studentPageID);
         })
         .catch(error => console.log(error));
-
+        
         this.setState({
             score: '',
             date: '',

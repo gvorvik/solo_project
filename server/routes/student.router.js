@@ -45,9 +45,7 @@ router.post('/score', (req, res) => {
     .then((results) => {
       res.send(results.rows);
     })
-    .catch(err => res.sendStatus(500))
-  console.log(score);
-  res.sendStatus(200);
+    .catch(err => res.sendStatus(500));
 });
 
 module.exports = router;

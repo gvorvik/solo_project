@@ -60,7 +60,7 @@ input[type="submit"] {
 }
 
 /* ------------------------------ */
-/*NAVBAR STYLING*/
+/* NAVBAR STYLING */
 /* ------------------------------ */
 nav {
     width: 100%;
@@ -128,7 +128,7 @@ nav {
  }
 
 /* ------------------------------ */
-/*STUDENT FORM STYLING*/
+/* STUDENT FORM STYLING */
 /* ------------------------------ */
 .dataForm {
     width: 60%;
@@ -145,6 +145,16 @@ nav {
     text-align: center;
     padding-bottom: 20px;
     margin-top: 30px;
+}
+
+#formHeader:after {
+    display: block;
+    height: 2px;
+    background-color: #e67e22;
+    content: " ";
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 30px   
 }
 
 .dataForm input[type=text],
@@ -174,7 +184,7 @@ input[type=submit]:active {
 
 
 /* ------------------------------ */
-/*SCORE FORM STYLING*/
+/* SCORE FORM STYLING */
 /* ------------------------------ */
 
 textarea {
