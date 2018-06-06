@@ -29,6 +29,7 @@ function* addStudent(action) {
 
 function* addStudentScore(action) {
   try {
+    yield call(axios.post, '/api/students/score', action.payload);
     console.log('Add student score ran');
   } catch(error) {
     console.log(error);
