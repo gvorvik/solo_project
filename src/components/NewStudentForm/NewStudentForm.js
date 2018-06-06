@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import {STUDENT_ACTIONS} from '../../redux/actions/studentActions';
+import { STUDENT_ACTIONS } from '../../redux/actions/studentActions';
 
 
 class NewStudentForm extends Component {
@@ -42,21 +42,35 @@ class NewStudentForm extends Component {
         });
     }
 
-  render() {
-    return (
-      <div >
-        <form>
-            <h1>Add New Student</h1>
-            <input onChange={this.handleChange} type="text" name="firstName" placeholder="First Name"/>
-            <input onChange={this.handleChange} type="text" name="lastName" placeholder="Last Name"/>
-            <input onChange={this.handleChange} type="text" name="grade" placeholder="Grade"/>
-            <input onChange={this.handleChange} type="number" name="goal" placeholder="Goal" />
-            <input onChange={this.handleChange} type="number" name="initialScore" placeholder="Initial Score" />
-            <input onClick={this.postStudent} type="submit"/>
-        </form>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div>
+                <h1 id="formHeader">Add New Student</h1>
+                <form id="newStudentForm">
+                    <div id="formInputWrapper">
+
+                        <label className="formLabel" htmlFor="firstName">First Name</label>
+                        <input onChange={this.handleChange} type="text" name="firstName" id="firstName" placeholder="First Name" />
+
+
+                        <label className="formLabel" htmlFor="lastName">Last Name</label>
+                        <input onChange={this.handleChange} type="text" name="lastName" id="lastName" placeholder="Last Name" />
+
+
+                        <label className="formLabel" htmlFor="grade">Grade</label>
+                        <input onChange={this.handleChange} type="text" name="grade" id="grade" placeholder="Grade" />
+
+                        <label className="formLabel" htmlFor="goal">Goal</label>
+                        <input onChange={this.handleChange} type="number" name="goal" id="goal" placeholder="Goal" />
+
+                        <label className="formLabel" htmlFor="initialScore">Initial Score</label>
+                        <input onChange={this.handleChange} type="number" name="initialScore" id="initialScore" placeholder="Initial Score" />
+                    </div>
+                    <input onClick={this.postStudent} type="submit" />
+                </form>
+            </div>
+        );
+    }
 }
 
 export default connect()(NewStudentForm);

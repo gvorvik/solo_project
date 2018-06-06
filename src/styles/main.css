@@ -4,7 +4,7 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    font-family: 'Arial', Tahoma, Geneva, Verdana, sans-serif
 }
 
 .lead {
@@ -18,7 +18,7 @@ body {
     color: #ece7e7;
 }
 
-form {
+.loginForm {
     background-color: #dbd5d5;
     width: 30%;
     height: 250px;
@@ -30,6 +30,11 @@ form {
 input {
     margin: 5px;
     margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+label {
+    padding-bottom: 10px;
 }
 
 input[type="submit"] {
@@ -112,9 +117,45 @@ nav {
  }
 
 
+/* ------------------------------ */
+/*STUDENT FORM STYLING*/
+/* ------------------------------ */
+#newStudentForm {
+    width: 60%;
+    margin: 0 auto;
+    text-transform: uppercase;
+}
+
+.formLabel {
+    font-size: 1.3em;    
+}
+
+#formHeader {
+    font-weight: 200;
+    text-align: center;
+    padding-bottom: 20px;
+    margin-top: 30px;
+}
+
+#newStudentForm input[type=text],
+#newStudentForm input[type=number] {
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 15px 0;
+    width: 70%;
+    display: block;
+    font-size: 1em;
+}
 
 
- /* Cards */
+
+
+
+
+/* ------------------------------ */
+/*CARD STYLING*/
+/* ------------------------------ */
  .cardWrapper {
     max-height: 400px;
     width: 250px;
