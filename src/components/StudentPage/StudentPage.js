@@ -63,7 +63,9 @@ class StudentPage extends Component {
                     <ul>
                         {scores}
                     </ul>
-                    <NewScoreForm />
+                    <NewScoreForm 
+                        getScores = {this.getStudentScores}
+                    />
                 </div>
             );
         }

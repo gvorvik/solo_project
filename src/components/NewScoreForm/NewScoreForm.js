@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
-import { STUDENT_ACTIONS } from '../../redux/actions/studentActions';
+import axios from 'axios';
 
 const mapStateToProps = reduxState => ({
     reduxState,
@@ -30,11 +29,17 @@ class NewScoreForm extends Component {
         event.preventDefault();
         const scoreToSend = this.state;
         console.log(scoreToSend);
-        const action = {
-            type: STUDENT_ACTIONS.ADD_SCORE,
-            payload: scoreToSend,
-        }
-        this.props.dispatch(action);
+        axios({
+            method: 'POST',
+            url: '/api/students/score',
+            data: scoreToSend,
+        })
+        .then((response) => {
+            console.log(response);
+            this.props.getScores(this.props.reduxState.student.studentPageID);
+        })
+        .catch(error => console.log(error));
+
         this.setState({
             score: '',
             date: '',
@@ -47,7 +52,7 @@ class NewScoreForm extends Component {
         return (
             <div>
                 <h1 id="formHeader">Add New Score</h1>
-                <form className="dataForm">
+                <form onSubmit={this.postScore} className="dataForm">
                     <div id="formInputWrapper">
 
                         <label className="formLabel" htmlFor="score">Words Per Minute</label>
@@ -62,7 +67,7 @@ class NewScoreForm extends Component {
                         <textarea onChange={this.handleChange} type="text" name="notes" id="notes" placeholder="Notes"></textarea>
 
                     </div>
-                    <input onClick={this.postScore} className="submitData" type="submit" />
+                    <input className="submitData" type="submit" />
                 </form>
             </div>
         );
