@@ -39,7 +39,7 @@ class ScoreChart extends Component {
                 // studentScores: response.data.map(score => score.score),
                 chartData: {
                     labels: response.data.map((score, i) => {
-                        return i;
+                        return i+1;
                     }),
                     datasets: [
                         {
@@ -60,11 +60,10 @@ class ScoreChart extends Component {
     render() {
         return (
         <div>
-            <div className="chart">
+            <div style={{width: '600px', height: '450px', margin: '0 auto'}}>
               <Line 
                 data={this.state.chartData}
-                height={200}
-                width={200}
+                width={150}
                 options={{
                     title: {
                         display: this.props.displayTitle,
@@ -76,7 +75,6 @@ class ScoreChart extends Component {
                         position: this.props.legendPosition
                     },
                     maintainAspectRatio: false,
-
                 }}
               />
             </div>
