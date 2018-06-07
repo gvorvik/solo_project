@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import moment from 'moment';
 import NewScoreForm from '../NewScoreForm/NewScoreForm';
 
 import { Bar, Line, Pie } from 'react-chartjs-2';
@@ -39,7 +40,8 @@ class ScoreChart extends Component {
             this.setState({
                 chartData: {
                     labels: response.data.map((score) => {
-                        return score.date;
+                        let scoreDate = moment(score.date).format("MMM Do YY");
+                        return scoreDate;
                     }),
                     datasets: [
                         {
