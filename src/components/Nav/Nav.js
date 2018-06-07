@@ -44,6 +44,11 @@ class Nav extends Component {
           </Link>
         </li>
         <li>
+          <Link to="/calendar">
+            Calendar
+          </Link>
+        </li>
+        <li>
           <button
             id="logoutBtn"
             onClick={this.logout}

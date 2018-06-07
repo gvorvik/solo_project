@@ -14,7 +14,7 @@ class NewScoreForm extends Component {
             score: '',
             date: '',
             notes: '',
-            studentId: this.props.reduxState.student.studentPageID,
+            studentId: this.props.reduxState.student.studentPageID.id,
         }
     }
 
@@ -36,7 +36,7 @@ class NewScoreForm extends Component {
         })
         .then((response) => {
             console.log(response);
-            this.props.getScores(this.props.reduxState.student.studentPageID);
+            this.props.getScores(this.props.reduxState.student.studentPageID.id);
         })
         .catch(error => console.log(error));
         
@@ -44,7 +44,7 @@ class NewScoreForm extends Component {
             score: '',
             date: '',
             notes: '',
-            studentId: this.props.reduxState.student.studentPageID,
+            studentId: this.props.reduxState.student.studentPageID.id,
         });
     }
 

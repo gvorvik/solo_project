@@ -4,7 +4,7 @@ import axios from 'axios';
 import moment from 'moment';
 import NewScoreForm from '../NewScoreForm/NewScoreForm';
 
-import { Bar, Line, Pie } from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
 
 const mapStateToProps = reduxState => ({
     reduxState,
@@ -20,7 +20,7 @@ class ScoreChart extends Component {
     }
 
     componentWillMount() {
-        this.getStudentScores(this.props.reduxState.student.studentPageID);
+        this.getStudentScores(this.props.reduxState.student.studentPageID.id);
     }
 
     //default props!!
@@ -36,11 +36,10 @@ class ScoreChart extends Component {
             url: `/api/students/scores/${id}`
         })
         .then((response) => {
-            console.log(response.data);
             this.setState({
                 chartData: {
                     labels: response.data.map((score) => {
-                        let scoreDate = moment(score.date).format("MMM Do YY");
+                        let scoreDate = moment(score.date).format("MMM Do YYYY");
                         return scoreDate;
                     }),
                     datasets: [
@@ -66,6 +65,9 @@ class ScoreChart extends Component {
               <Line 
                 data={this.state.chartData}
                 options={{
+                    tooltips: {
+
+                    },
                     title: {
                         display: this.props.displayTitle,
                         text: 'Student Progress',

@@ -10,7 +10,7 @@ const studentReducer = (state = [], action) => {
   }
 }
 
-const studentPageID = (state = 1, action) => {
+const studentPageID = (state = {}, action) => {
   switch (action.type) {
     case STUDENT_ACTIONS.SET_STUDENT_ID_IN_STORE:
       return action.payload;

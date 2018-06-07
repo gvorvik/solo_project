@@ -16,11 +16,15 @@ const mapStateToProps = reduxState => ({
 
 class StudentCard extends Component {
 
-  sendStudentIdToReduxStore = (id) => {
+  sendStudentIdToReduxStore = (id, firstName, lastName) => {
     console.log('click logged', id);
     const action = {
       type: STUDENT_ACTIONS.SET_STUDENT_ID_IN_STORE,
-      payload: id,
+      payload: {
+        id,
+        firstName,
+        lastName
+      },
     }
     this.props.dispatch(action);
   }
@@ -46,7 +50,7 @@ class StudentCard extends Component {
             <Link to="/student">
               Go To Student
             </Link>
-            <Button onClick={() => this.sendStudentIdToReduxStore(this.props.id)}>TEST</Button>
+            <Button onClick={() => this.sendStudentIdToReduxStore(this.props.id, this.props.firstName, this.props.lastName)}>TEST</Button>
           </CardActions>
         </Card>
       </div>

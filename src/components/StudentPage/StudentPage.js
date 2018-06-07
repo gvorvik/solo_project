@@ -29,8 +29,8 @@ class StudentPage extends Component {
             content = (
                 <div>
                     <Nav />
-                    <h1>Student Page</h1>
-                    <p>The current student ID is {this.props.reduxState.student.studentPageID}</p>
+                    <h1 id="studentPageHeader">{this.props.reduxState.student.studentPageID.firstName} {this.props.reduxState.student.studentPageID.lastName}</h1>
+                    <p>The current student ID is {this.props.reduxState.student.studentPageID.id}</p>
                     <ScoreChart />
                 </div>
             );
