@@ -35,11 +35,11 @@ class ScoreChart extends Component {
             url: `/api/students/scores/${id}`
         })
         .then((response) => {
+            console.log(response.data);
             this.setState({
-                // studentScores: response.data.map(score => score.score),
                 chartData: {
-                    labels: response.data.map((score, i) => {
-                        return i+1;
+                    labels: response.data.map((score) => {
+                        return score.date;
                     }),
                     datasets: [
                         {
@@ -63,7 +63,6 @@ class ScoreChart extends Component {
             <div style={{width: '600px', height: '450px', margin: '0 auto'}}>
               <Line 
                 data={this.state.chartData}
-                width={150}
                 options={{
                     title: {
                         display: this.props.displayTitle,
@@ -75,6 +74,13 @@ class ScoreChart extends Component {
                         position: this.props.legendPosition
                     },
                     maintainAspectRatio: false,
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true,
+                            }
+                        }]
+                    }
                 }}
               />
             </div>
