@@ -31,21 +31,24 @@ class StudentList extends Component {
         });
 
         let students = filteredStudents.map((student) => {
-            return <Grid key={student.id} item xs={12} sm={6} md={4}> <StudentCard
-                key={student.id}
-                id={student.id}
-                firstName={student.first_name}
-                lastName={student.last_name}
-                grade={student.grade}
-                goal={student.goal}
-                initialScore={student.initial_score}
-
-            /></Grid>
+            return <Grid key={student.id} item xs={12} sm={6} md={4}> 
+                        <StudentCard
+                            key={student.id}
+                            id={student.id}
+                            firstName={student.first_name}
+                            lastName={student.last_name}
+                            grade={student.grade}
+                            goal={student.goal}
+                            initialScore={student.initial_score}
+                    /></Grid>
         });
 
         return (
             <div>
-                <input type="text" onChange={this.handleChange}/>
+                <div id="searchDiv">
+                    <h1>Search Students</h1>
+                    <input id="searchInput" type="text" placeholder="Student Name" onChange={this.handleChange}/>
+                </div>
                 <Grid container spacing={32}>
                     {students}
                 </Grid>
@@ -54,5 +57,4 @@ class StudentList extends Component {
     }
 }
 
-// this allows us to use <App /> in index.js
 export default connect(mapStateToProps)(StudentList);

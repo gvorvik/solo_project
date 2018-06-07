@@ -129,7 +129,27 @@ nav {
  }
 
 /* ------------------------------ */
-/* STUDENT FORM STYLING */
+/* SEARCH STYLING */
+/* ------------------------------ */
+
+#searchDiv {
+    text-align: center;
+    margin: 30px 0 60px 0;
+}
+
+#searchInput {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 20px auto 0;
+    width: 70%;
+    display: block;
+    font-size: 1em;
+}
+
+
+/* ------------------------------ */
+/* FORM STYLING */
 /* ------------------------------ */
 .dataForm {
     width: 60%;
@@ -182,11 +202,6 @@ input[type=submit]:hover,
 input[type=submit]:active {
     background-color: #cf6d17;
 }
-
-
-/* ------------------------------ */
-/* SCORE FORM STYLING */
-/* ------------------------------ */
 
 textarea {
     height: 100px;
