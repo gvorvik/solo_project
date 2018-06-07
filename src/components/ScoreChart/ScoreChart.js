@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import moment from 'moment';
 import NewScoreForm from '../NewScoreForm/NewScoreForm';
+import NotesSection from '../NotesSection/NotesSection';
 
 import { Line } from 'react-chartjs-2';
 
@@ -15,7 +16,8 @@ class ScoreChart extends Component {
         super(props);
 
         this.state = {
-           chartData: {}
+           chartData: {},
+           notes: []
         }
     }
 
@@ -49,12 +51,23 @@ class ScoreChart extends Component {
                             backgroundColor: 'rgba(230, 126, 34, 0.6)'
                         }
                     ]
-                }
+                },
+                notes: response.data.map((score) => {
+                    return {
+                        note: score.notes,
+                        date: moment(score.date).format("MMM Do YYYY"),
+                    }
+                })
             });
+            this.logState();
         })
         .catch((error) => {
             console.log(error);
         })
+    }
+
+    logState = () => {
+        console.log(this.state);
     }
 
 
@@ -88,11 +101,11 @@ class ScoreChart extends Component {
                 }}
               />
             </div>
+            <NotesSection notes={this.state.notes}/>
             <NewScoreForm getScores={this.getStudentScores}/>
         </div>
         );
     }
 }
 
-// this allows us to use <App /> in index.js
 export default connect(mapStateToProps)(ScoreChart);

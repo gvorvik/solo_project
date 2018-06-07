@@ -47,15 +47,15 @@ class Calendar extends Component {
             content = (
                 <div style={{ width: '85%', margin: '20px auto 0' }}>
                     <h1>Placeholder for Calendar</h1>
-                    {/* <BigCalendar
-                        events={this.state.events}
+                    <BigCalendar
+                        events={[{}]}
                         startAccessor='startDate'
                         endAccessor='endDate'
                         view='day'
                         views={['day', 'agenda', 'week']}
                         min={this.state.minTime}
                         max={this.state.maxTime}
-                    /> */}
+                    />
                 </div>
             );
         }
