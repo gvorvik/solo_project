@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
 
 router.get('/scores/:id', (req, res) => {
   const studentID = Number(req.params.id);
-  queryText = `SELECT "score", "date" from "scores" WHERE "student_id" = $1`;
+  queryText = `SELECT "score", "date" from "scores" WHERE "student_id" = $1 ORDER BY "date"`;
   pool.query(queryText, [studentID])
     .then((results) => {
       res.send(results.rows);
