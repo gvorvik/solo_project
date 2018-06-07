@@ -17,15 +17,23 @@ class NotesSection extends Component {
 
     render() {
         let notes = this.props.notes.map((note) => {
-            return <li>{note.note}</li>
+            return <tr><td>{note.date}</td><td>{note.note}</td></tr>
         });
 
         return (
             <div>
                 <h1>Notes Section</h1>
-                <ul>
-                    {notes}
-                </ul>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Note</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {notes}
+                    </tbody>
+                </table>
             </div>
         );
     }
