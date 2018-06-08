@@ -17,7 +17,7 @@ const mapStateToProps = state => ({
 class UserPage extends Component {
   componentDidMount() {
     this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
-    this.props.dispatch({type: STUDENT_ACTIONS.FETCH_STUDENTS});
+    this.props.dispatch({ type: STUDENT_ACTIONS.FETCH_STUDENTS });
   }
 
   componentDidUpdate() {
@@ -26,13 +26,17 @@ class UserPage extends Component {
     }
   }
 
+  changePage = () => {
+    this.props.history.push('/student');
+  }
+
   render() {
     let content = null;
 
     if (this.props.user.userName) {
       content = (
         <div>
-          <StudentList />
+          <StudentList changePage = {this.changePage} />
           <NewStudentForm />
         </div>
       );

@@ -23,6 +23,7 @@ class StudentList extends Component {
         console.log(this.state.search);
     }
 
+
     render() {
 
         let filteredStudents = this.props.reduxState.student.studentReducer.filter((contact) => {
@@ -40,6 +41,7 @@ class StudentList extends Component {
                             grade={student.grade}
                             goal={student.goal}
                             initialScore={student.initial_score}
+                            changePage = {this.props.changePage}
                     /></Grid>
         });
 

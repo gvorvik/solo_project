@@ -59,16 +59,12 @@ class ScoreChart extends Component {
                     }
                 })
             });
-            this.logState();
         })
         .catch((error) => {
             console.log(error);
         })
     }
 
-    logState = () => {
-        console.log(this.state);
-    }
 
 
     render() {

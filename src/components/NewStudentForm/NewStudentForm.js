@@ -13,7 +13,6 @@ class NewStudentForm extends Component {
             lastName: '',
             grade: '',
             goal: 0,
-            initialScore: 0,
         }
     }
 
@@ -38,7 +37,6 @@ class NewStudentForm extends Component {
             lastName: '',
             grade: '',
             goal: 0,
-            initialScore: 0,
         });
     }
 
@@ -46,7 +44,7 @@ class NewStudentForm extends Component {
         return (
             <div>
                 <h1 id="formHeader">Add New Student</h1>
-                <form className="dataForm">
+                <form onSubmit={this.postStudent} className="dataForm">
                     <div id="formInputWrapper">
 
                         <label className="formLabel" htmlFor="firstName">First Name</label>
@@ -63,10 +61,8 @@ class NewStudentForm extends Component {
                         <label className="formLabel" htmlFor="goal">Goal</label>
                         <input onChange={this.handleChange} type="number" name="goal" id="goal" placeholder="Goal" />
 
-                        <label className="formLabel" htmlFor="initialScore">Initial Score</label>
-                        <input onChange={this.handleChange} type="number" name="initialScore" id="initialScore" placeholder="Initial Score" />
                     </div>
-                    <input onClick={this.postStudent} className="submitData" type="submit" />
+                    <input className="submitData" type="submit" />
                 </form>
             </div>
         );

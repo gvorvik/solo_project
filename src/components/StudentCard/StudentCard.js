@@ -27,6 +27,7 @@ class StudentCard extends Component {
       },
     }
     this.props.dispatch(action);
+    this.props.changePage();
   }
 
   render() {
@@ -47,10 +48,7 @@ class StudentCard extends Component {
             </Typography>
           </CardContent>
           <CardActions>
-            <Link to="/student">
-              Go To Student
-            </Link>
-            <Button onClick={() => this.sendStudentIdToReduxStore(this.props.id, this.props.firstName, this.props.lastName)}>TEST</Button>
+            <Button onClick={() => this.sendStudentIdToReduxStore(this.props.id, this.props.firstName, this.props.lastName)}>Go To Student</Button>
           </CardActions>
         </Card>
       </div>

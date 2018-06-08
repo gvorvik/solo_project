@@ -29,11 +29,11 @@ router.get('/scores/:id', (req, res) => {
 router.post('/', (req, res) => {
   const student = req.body;
   const queryText = `INSERT INTO "student" ("first_name", "last_name", "grade", 
-                    "goal", "initial_score") VALUES ($1, $2, $3, $4, $5);`;
+                    "goal") VALUES ($1, $2, $3, $4);`;
   pool.query(queryText, [student.firstName, student.lastName, student.grade,
-              student.goal, student.initialScore])
+              student.goal])
     .then((results) => {
-      res.send(results.rows);
+      res.sendStatus(200);
     })
     .catch(err => res.sendStatus(500))
 });
@@ -46,7 +46,7 @@ router.post('/score', (req, res) => {
   pool.query(queryText, [Number(score.score), score.date, score.notes,
               score.studentId])
     .then((results) => {
-      res.send(results.rows);
+       res.send(results.rows);
     })
     .catch(err => res.sendStatus(500));
 });
