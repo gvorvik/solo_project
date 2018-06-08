@@ -30,7 +30,8 @@ router.get('/average', (req, res) => {
   pool.query(`SELECT AVG("scores"."score"), "student"."grade"
               FROM "scores"
               JOIN "student" ON "scores"."student_id"="student"."id"
-              GROUP BY "student"."grade";`)
+              GROUP BY "student"."grade"
+              ORDER BY "avg";`)
     .then((results) => {
       res.send(results.rows);
     })

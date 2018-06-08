@@ -41,7 +41,7 @@ class AverageGraph extends Component {
                                 data: response.data.map(score => score.avg),
                                 backgroundColor: 'rgba(230, 126, 34, 0.6)'
                             }
-                        ]
+                        ],
                     }
                 });
             })
