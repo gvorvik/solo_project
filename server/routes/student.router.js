@@ -25,6 +25,18 @@ router.get('/scores/:id', (req, res) => {
     .catch(err => res.sendStatus(500));
 });
 
+router.get('/average', (req, res) => {
+  console.log('Get got got');
+  pool.query(`SELECT AVG("scores"."score"), "student"."grade"
+              FROM "scores"
+              JOIN "student" ON "scores"."student_id"="student"."id"
+              GROUP BY "student"."grade";`)
+    .then((results) => {
+      res.send(results.rows);
+    })
+    .catch(err => res.sendStatus(500));
+})
+
 
 router.post('/', (req, res) => {
   const student = req.body;
