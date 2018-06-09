@@ -20,7 +20,6 @@ class StudentList extends Component {
         this.setState({
             search: [event.target.value]
         })
-        console.log(this.state.search);
     }
 
 

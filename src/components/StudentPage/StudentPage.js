@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
+import moment from 'moment';
 import ScoreChart from '../ScoreChart/ScoreChart';
+import StudentDropdown from '../StudentDropdown/StudentDropdown';
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 import Nav from '../Nav/Nav';
@@ -11,6 +14,14 @@ const mapStateToProps = reduxState => ({
 });
 
 class StudentPage extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+           chartData: {},
+           notes: []
+        }
+    }
 
     componentDidMount() {
         this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
@@ -22,6 +33,40 @@ class StudentPage extends Component {
         }
     }
 
+    getStudentScores = (id) => {
+        axios({
+            method: 'GET',
+            url: `/api/students/scores/${id}`
+        })
+        .then((response) => {
+            this.setState({
+                chartData: {
+                    labels: response.data.map((score) => {
+                        let scoreDate = moment(score.date).format("MMM Do YYYY");
+                        return scoreDate;
+                    }),
+                    datasets: [
+                        {
+                            label: 'Words Per Minute',
+                            data: response.data.map(score => score.score),
+                            backgroundColor: 'rgba(230, 126, 34, 0.6)'
+                        }
+                    ]
+                },
+                notes: response.data.map((score) => {
+                    return {
+                        note: score.notes,
+                        date: moment(score.date).format("MMM Do YYYY"),
+                    }
+                })
+            });
+        })
+        .catch((error) => {
+            console.log(error);
+        })
+    }
+
+
     render() {
         let content = null;
 
@@ -31,7 +76,12 @@ class StudentPage extends Component {
                     <Nav />
                     <h1 id="studentPageHeader">{this.props.reduxState.student.studentPageID.firstName} {this.props.reduxState.student.studentPageID.lastName}</h1>
                     <p>The current student ID is {this.props.reduxState.student.studentPageID.id}</p>
-                    <ScoreChart />
+                    <StudentDropdown getStudentScores={this.getStudentScores} />
+                    <ScoreChart 
+                        getStudentScores={this.getStudentScores} 
+                        chartData={this.state.chartData}
+                        notes={this.state.notes}
+                        />
                 </div>
             );
         }

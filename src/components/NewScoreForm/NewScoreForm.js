@@ -36,7 +36,7 @@ class NewScoreForm extends Component {
         })
         .then((response) => {
             console.log(response);
-            this.props.getScores(this.props.reduxState.student.studentPageID.id);
+            this.props.getStudentScores(this.props.reduxState.student.studentPageID.id);
         })
         .catch(error => console.log(error));
         

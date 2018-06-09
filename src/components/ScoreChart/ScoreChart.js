@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import axios from 'axios';
-import moment from 'moment';
 import NewScoreForm from '../NewScoreForm/NewScoreForm';
 import NotesSection from '../NotesSection/NotesSection';
 
@@ -12,17 +10,9 @@ const mapStateToProps = reduxState => ({
 });
 
 class ScoreChart extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-           chartData: {},
-           notes: []
-        }
-    }
 
     componentWillMount() {
-        this.getStudentScores(this.props.reduxState.student.studentPageID.id);
+        this.props.getStudentScores(this.props.reduxState.student.studentPageID.id);
     }
 
     //default props!!
@@ -32,39 +22,6 @@ class ScoreChart extends Component {
         legendPosition: 'bottom',
     }
 
-    getStudentScores = (id) => {
-        axios({
-            method: 'GET',
-            url: `/api/students/scores/${id}`
-        })
-        .then((response) => {
-            this.setState({
-                chartData: {
-                    labels: response.data.map((score) => {
-                        let scoreDate = moment(score.date).format("MMM Do YYYY");
-                        return scoreDate;
-                    }),
-                    datasets: [
-                        {
-                            label: 'Words Per Minute',
-                            data: response.data.map(score => score.score),
-                            backgroundColor: 'rgba(230, 126, 34, 0.6)'
-                        }
-                    ]
-                },
-                notes: response.data.map((score) => {
-                    return {
-                        note: score.notes,
-                        date: moment(score.date).format("MMM Do YYYY"),
-                    }
-                })
-            });
-        })
-        .catch((error) => {
-            console.log(error);
-        })
-    }
-
 
 
     render() {
@@ -72,7 +29,7 @@ class ScoreChart extends Component {
         <div>
             <div style={{width: '600px', height: '450px', margin: '0 auto'}}>
               <Line 
-                data={this.state.chartData}
+                data={this.props.chartData}
                 options={{
                     tooltips: {
 
@@ -97,8 +54,8 @@ class ScoreChart extends Component {
                 }}
               />
             </div>
-            <NotesSection notes={this.state.notes}/>
-            <NewScoreForm getScores={this.getStudentScores}/>
+            <NotesSection notes={this.props.notes}/>
+            <NewScoreForm getStudentScores={this.props.getStudentScores}/>
         </div>
         );
     }

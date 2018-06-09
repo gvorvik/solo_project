@@ -14,7 +14,6 @@ router.get('/', (req, res) => {
     .catch(err => res.sendStatus(500));
 });
 
-
 router.get('/scores/:id', (req, res) => {
   const studentID = Number(req.params.id);
   const queryText = `SELECT "score", "date", "notes" from "scores" WHERE "student_id" = $1 ORDER BY "date"`;
@@ -26,7 +25,6 @@ router.get('/scores/:id', (req, res) => {
 });
 
 router.get('/average', (req, res) => {
-  console.log('Get got got');
   pool.query(`SELECT AVG("scores"."score"), "student"."grade"
               FROM "scores"
               JOIN "student" ON "scores"."student_id"="student"."id"
@@ -38,6 +36,15 @@ router.get('/average', (req, res) => {
     .catch(err => res.sendStatus(500));
 })
 
+router.get('/studentinfo/:id', (req, res) => {
+  const studentID = req.params.id;
+  pool.query(`SELECT "first_name", "last_name", "id" from "student"
+              WHERE "id" = $1`, [studentID])
+  .then((results) => {
+    res.send(results.rows);
+  })
+  .catch(err => res.sendStatus(500));
+});
 
 router.post('/', (req, res) => {
   const student = req.body;
