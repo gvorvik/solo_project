@@ -272,6 +272,21 @@ input[type=date] {
     margin-top: 30px;
 }
 
+/* ------------------------------ */
+/* AVERAGE GRAPH STYLING */
+/* ------------------------------ */
+
+#averageGraph {
+    width: 600px;
+    height: 450px;
+    margin: 0 auto;
+}
+
+@media only screen and (max-width: 767px) {
+    #averageGraph {
+        width: 80%;
+    }
+}
 
 /* ------------------------------ */
 /* CALENDAR STYLING */

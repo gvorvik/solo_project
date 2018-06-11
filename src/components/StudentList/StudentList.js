@@ -41,7 +41,8 @@ class StudentList extends Component {
                             goal={student.goal}
                             initialScore={student.initial_score}
                             changePage = {this.props.changePage}
-                    /></Grid>
+                        />
+                    </Grid>
         });
 
         return (
@@ -50,6 +51,7 @@ class StudentList extends Component {
                     <h1>Search Students</h1>
                     <input id="searchInput" type="text" placeholder="Student Name" onChange={this.handleChange}/>
                 </div>
+                
                 <Grid container spacing={32}>
                     {students}
                 </Grid>

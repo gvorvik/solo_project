@@ -51,7 +51,7 @@ class AverageGraph extends Component {
     render() {
 
         return (
-            <div style={{width: '600px', height: '450px', margin: "0 auto"}}>
+            <div id="averageGraph">
                 <Bar 
                 data={this.state.chartData}
                 options={{
