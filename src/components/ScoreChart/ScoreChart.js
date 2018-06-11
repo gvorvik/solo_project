@@ -27,7 +27,7 @@ class ScoreChart extends Component {
     render() {
         return (
         <div>
-            <div style={{width: '600px', height: '450px', margin: '0 auto'}}>
+            <div style={{width: "80%", height: "450px", margin: "0 auto"}}>
               <Line 
                 data={this.props.chartData}
                 options={{

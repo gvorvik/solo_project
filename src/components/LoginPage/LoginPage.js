@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { triggerLogin, formError, clearError } from '../../redux/actions/loginActions';
 import Header from '../Header/Header';
+import TextField from '@material-ui/core/TextField';
 
 const mapStateToProps = state => ({
   user: state.user,
@@ -62,7 +63,7 @@ class LoginPage extends Component {
 
   render() {
     return (
-      <div>
+      <div id="loginDiv">
         <Header title="Reading Tracker"/>
         { this.renderAlert() }
         <form className="loginForm" onSubmit={this.login}>
@@ -70,7 +71,7 @@ class LoginPage extends Component {
           <div>
             <label htmlFor="username">
               Username:
-              <input
+              <TextField
                 type="text"
                 name="username"
                 value={this.state.username}
@@ -81,7 +82,7 @@ class LoginPage extends Component {
           <div>
             <label htmlFor="password">
               Password:
-              <input
+              <TextField
                 type="password"
                 name="password"
                 value={this.state.password}
@@ -91,6 +92,7 @@ class LoginPage extends Component {
           </div>
           <div>
             <input
+              style={{backgroundColor: "#979797"}}
               type="submit"
               name="submit"
               value="Log In"

@@ -26,7 +26,7 @@ class Calendar extends Component {
         if (this.props.user.userName) {
             content = (
                 <div id="calendarDiv">
-                    <iframe title="GregCalendar" src="https://calendar.google.com/calendar/embed?src=gvorvik%40gmail.com&ctz=America%2FChicago" style={{ width: "800px", height: "600px", frameborder: "0", scrolling: "no" }}></iframe>
+                    <iframe id="calendar" title="GregCalendar" src="https://calendar.google.com/calendar/embed?src=gvorvik%40gmail.com&ctz=America%2FChicago" style={{ frameborder: "0", scrolling: "no" }}></iframe>
                 </div>
             );
         }

@@ -19,7 +19,7 @@ body {
 }
 
 .loginForm {
-    background-color: #dbd5d5;
+    background-color: rgba(230, 126, 34, 0.6);
     width: 30%;
     height: 250px;
     margin: 20px auto;
@@ -27,8 +27,12 @@ body {
     border-radius: 2px;
 }
 
-.loginForm input {
-    font-size: 1em;
+#loginDiv {
+    height: 100vh;
+}
+
+.registerBtn {
+    background-color: #979797;
 }
 
 input {
@@ -277,14 +281,15 @@ input[type=date] {
 /* ------------------------------ */
 
 #averageGraph {
-    width: 600px;
+    width: 80%;
+    max-width: 750px;
     height: 450px;
     margin: 0 auto;
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 420px) {
     #averageGraph {
-        width: 80%;
+        width: 90%;
     }
 }
 
@@ -295,6 +300,19 @@ input[type=date] {
 #calendarDiv {
     text-align: center;
     margin-top: 30px;
+}
+
+#calendar {
+    width: 90%;
+    max-width: 800px;
+    height: 600px;
+    
+}
+
+@media only screen and (max-width: 835px) {
+    #calendarDiv {
+        width: 96%;
+    }
 }
 
 /* ------------------------------ */

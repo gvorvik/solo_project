@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Header from '../Header/Header';
+import TextField from '@material-ui/core/TextField';
 
 class RegisterPage extends Component {
   constructor(props) {
@@ -80,7 +81,7 @@ class RegisterPage extends Component {
           <div>
             <label htmlFor="password">
               First Name:
-              <input
+              <TextField
                 type="firstName"
                 name="firstName"
                 value={this.state.firstName}
@@ -91,7 +92,7 @@ class RegisterPage extends Component {
           <div>
             <label htmlFor="password">
               Last Name:
-              <input
+              <TextField
                 type="lastName"
                 name="lastName"
                 value={this.state.lastName}
@@ -102,7 +103,7 @@ class RegisterPage extends Component {
           <div>
             <label htmlFor="username">
               Username:
-              <input
+              <TextField
                 type="text"
                 name="username"
                 value={this.state.username}
@@ -113,7 +114,7 @@ class RegisterPage extends Component {
           <div>
             <label htmlFor="password">
               Password:
-              <input
+              <TextField
                 type="password"
                 name="password"
                 value={this.state.password}
@@ -123,6 +124,7 @@ class RegisterPage extends Component {
           </div>
           <div>
             <input
+              style={{backgroundColor: "#979797"}}
               type="submit"
               name="submit"
               value="Register"
