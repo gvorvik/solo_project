@@ -33,14 +33,17 @@ class StudentDropdown extends Component {
         })
             .then((response) => {
                 const student = response.data[0];
+                console.log(student);
                 const action = {
                     type: STUDENT_ACTIONS.SET_STUDENT_ID_IN_STORE,
                     payload: {
                         id: student.id,
                         firstName: student.first_name,
-                        lastName: student.last_name
+                        lastName: student.last_name,
+                        goal: student.goal
                     },
                 }
+                console.log(action);
                 this.props.dispatch(action);
                 this.props.getStudentScores(student.id);
             })
@@ -58,9 +61,6 @@ class StudentDropdown extends Component {
     render() {
 
         let students = this.props.reduxState.student.studentReducer.map((student) => {
-            // return <option key={student.id} value={student.id}>
-            //     {student.first_name} {student.last_name}
-            // </option>
             return <MenuItem key={student.id} value={student.id}>{student.first_name} {student.last_name}</MenuItem>
         })
 

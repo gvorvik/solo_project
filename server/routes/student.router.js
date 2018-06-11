@@ -62,7 +62,7 @@ router.get('/studentinfo/:id', (req, res) => {
 
   if(req.isAuthenticated()) {
     const studentID = req.params.id;
-    pool.query(`SELECT "first_name", "last_name", "id" from "student"
+    pool.query(`SELECT "first_name", "last_name", "id", "goal" from "student"
                 WHERE "id" = $1`, [studentID])
     .then((results) => {
       res.send(results.rows);
@@ -100,7 +100,7 @@ router.post('/score', (req, res) => {
       const queryText = `INSERT INTO "scores" ("score", "date", "notes", 
                         "student_id") VALUES ($1, $2, $3, $4);`;
       pool.query(queryText, [Number(score.score), score.date, score.notes,
-                  score.studentId])
+                  score.id])
         .then((results) => {
            res.send(results.rows);
         })

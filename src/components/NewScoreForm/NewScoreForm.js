@@ -14,7 +14,6 @@ class NewScoreForm extends Component {
             score: '',
             date: '',
             notes: '',
-            studentId: this.props.reduxState.student.studentPageID.id,
         }
     }
 
@@ -27,7 +26,11 @@ class NewScoreForm extends Component {
 
     postScore = (event) => {
         event.preventDefault();
-        const scoreToSend = this.state;
+        const scoreToSend = {
+            ...this.state, 
+            id: this.props.reduxState.student.studentPageID.id
+        };
+        console.log(scoreToSend)
         
         axios({
             method: 'POST',
@@ -44,7 +47,6 @@ class NewScoreForm extends Component {
             score: '',
             date: '',
             notes: '',
-            studentId: this.props.reduxState.student.studentPageID.id,
         });
     }
 
