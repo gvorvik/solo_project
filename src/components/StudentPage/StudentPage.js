@@ -19,7 +19,8 @@ class StudentPage extends Component {
 
         this.state = {
            chartData: {},
-           notes: []
+           notes: [],
+           goal: 0,
         }
     }
 
@@ -60,7 +61,8 @@ class StudentPage extends Component {
                         date: moment(score.date).format("MMM Do YYYY"),
                         score: score.score,
                     }
-                })
+                }),
+                goal: response.data[0].goal
             });
         })
         .catch((error) => {
@@ -77,12 +79,12 @@ class StudentPage extends Component {
                 <div>
                     <Nav />
                     <h1 id="studentPageHeader">{this.props.reduxState.student.studentPageID.firstName} {this.props.reduxState.student.studentPageID.lastName}</h1>
-                    <p>The current student ID is {this.props.reduxState.student.studentPageID.id}</p>
                     <StudentDropdown getStudentScores={this.getStudentScores} />
                     <ScoreChart 
                         getStudentScores={this.getStudentScores} 
                         chartData={this.state.chartData}
                         notes={this.state.notes}
+                        goal={this.state.goal}
                         />
                 </div>
             );

@@ -48,6 +48,7 @@ class ScoreChart extends Component {
                         yAxes: [{
                             ticks: {
                                 beginAtZero: true,
+                                suggestedMax: this.props.goal,
                             }
                         }]
                     }

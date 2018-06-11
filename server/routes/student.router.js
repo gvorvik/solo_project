@@ -24,7 +24,11 @@ router.get('/scores/:id', (req, res) => {
 
   if(req.isAuthenticated()) {
     const studentID = Number(req.params.id);
-    const queryText = `SELECT "score", "date", "notes" from "scores" WHERE "student_id" = $1 ORDER BY "date"`;
+    const queryText = `SELECT "scores"."score", "scores"."date", "scores"."notes", "student"."goal" 
+                        FROM "scores"
+                        JOIN "student" ON "scores"."student_id"="student"."id"
+                        WHERE "student_id" = $1 
+                        ORDER BY "date"`;
     pool.query(queryText, [studentID])
       .then((results) => {
         res.send(results.rows);
@@ -104,6 +108,7 @@ router.post('/score', (req, res) => {
     } else {
       res.sendStatus(403);
     }
+
 });
 
 module.exports = router;
