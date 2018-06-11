@@ -22,7 +22,7 @@ class NotesSection extends Component {
 
     render() {
         let notes = this.props.notes.map((note, i) => {
-            return <TableRow key={i}><TableCell>{note.date}</TableCell><TableCell>{note.note}</TableCell></TableRow>
+            return <TableRow key={i}><TableCell>{note.date}</TableCell><TableCell>{note.score}</TableCell><TableCell>{note.note}</TableCell></TableRow>
         });
 
         return (
@@ -32,6 +32,7 @@ class NotesSection extends Component {
                     <TableHead>
                         <TableRow>
                             <TableCell>Date</TableCell>
+                            <TableCell>Score</TableCell>
                             <TableCell>Note</TableCell>
                         </TableRow>
                     </TableHead>

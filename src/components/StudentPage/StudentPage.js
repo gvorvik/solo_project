@@ -39,6 +39,7 @@ class StudentPage extends Component {
             url: `/api/students/scores/${id}`
         })
         .then((response) => {
+            console.log(response.data);
             this.setState({
                 chartData: {
                     labels: response.data.map((score) => {
@@ -57,6 +58,7 @@ class StudentPage extends Component {
                     return {
                         note: score.notes,
                         date: moment(score.date).format("MMM Do YYYY"),
+                        score: score.score,
                     }
                 })
             });
