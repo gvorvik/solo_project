@@ -12,12 +12,15 @@ import UserPage from './components/UserPage/UserPage';
 import InfoPage from './components/InfoPage/InfoPage';
 import StudentPage from './components/StudentPage/StudentPage';
 import Calendar from './components/Calendar/Calendar';
+import SimpleMenu from './components/SimpleMenu/SimpleMenu';
 
 import './styles/main.css';
 
 const App = () => (
-  <div>
-    <Router>
+  <Router>
+    <div>
+      <SimpleMenu />
+
       <Switch>
         <Redirect exact from="/" to="/home" />
         <Route
@@ -48,9 +51,10 @@ const App = () => (
         <Route render={() => <h1>404</h1>} />
 
       </Switch>
-    </Router>
-    <footer></footer>
-  </div>
+
+      <footer></footer>
+    </div>
+  </Router>
 );
 
 export default App;

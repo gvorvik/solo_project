@@ -45,6 +45,7 @@ class UserPage extends Component {
     return (
       <div>
         <Nav />
+
         {content}
       </div>
     );

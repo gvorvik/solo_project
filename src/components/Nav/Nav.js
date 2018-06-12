@@ -20,6 +20,7 @@ class Nav extends Component {
     // this.props.history.push('home');
   }
 
+
   render() {
 
     const imgPath = `images/${this.props.reduxState.user.welcomeUser.img_path}`;
