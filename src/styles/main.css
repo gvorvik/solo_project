@@ -64,6 +64,35 @@ input[type="submit"] {
 }
 
 /* ------------------------------ */
+/* SIMPLE MENU STYLING */
+/* ------------------------------ */
+
+#simpleMenu {
+    display: none;
+    background-color: #363636;
+    height: 60px;
+}
+
+#simpleMenu h3 {
+    color: #fff;
+}
+
+@media only screen and (max-width: 600px) {
+    #simpleMenu {
+        display: block;
+        text-align: center;
+    }
+
+    #simpleMenu button {
+        width: 70%;
+        margin: 0 auto;
+        color: #fff;
+        display: block;
+    }
+ }
+
+
+/* ------------------------------ */
 /* NAVBAR STYLING */
 /* ------------------------------ */
 nav {
@@ -149,7 +178,7 @@ nav {
  }
 
  @media only screen and (max-width: 600px) {
-    #navbarList {
+    /* #navbarList {
         float: none;
         padding-top: 5px;
      }
@@ -175,6 +204,10 @@ nav {
         margin: 0 auto;
         margin-top: 5px;
         margin-bottom: 5px;   
+    } */
+
+    nav {
+        display: none;
     }
  }
 

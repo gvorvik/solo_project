@@ -4,6 +4,8 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import {Link} from 'react-router-dom';
 
+import MenuIcon from '@material-ui/icons/Menu';
+
 class SimpleMenu extends React.Component {
   constructor(props) {
       super(props);
@@ -27,12 +29,13 @@ class SimpleMenu extends React.Component {
 
     return (
       <div id="simpleMenu">
+        {/* <h3>Open</h3> */}
         <Button
           aria-owns={anchorEl ? 'simple-menu' : null}
           aria-haspopup="true"
           onClick={this.handleClick}
         >
-          Open Menu
+          <MenuIcon />
         </Button>
         <Menu
           id="simple-menu"
@@ -40,11 +43,11 @@ class SimpleMenu extends React.Component {
           open={Boolean(anchorEl)}
           onClose={this.handleClose}
         >
-          <MenuItem component={Link} to='/student'>Home</MenuItem>
-          <MenuItem onClick={this.handleClose}>Admin</MenuItem>
-          <MenuItem onClick={this.handleClose}>Student</MenuItem>
-          <MenuItem onClick={this.handleClose}>Calendar</MenuItem>
-          <MenuItem onClick={this.handleClose}>Log Out</MenuItem>
+          <MenuItem component={Link} to='/user'>Home</MenuItem>
+          <MenuItem component={Link} to='/info'>Admin</MenuItem>
+          <MenuItem component={Link} to='/student'>Student</MenuItem>
+          <MenuItem component={Link} to='/calendar'>Calendar</MenuItem>
+          <MenuItem component={Link} to='/student'>Log Out</MenuItem>
         </Menu>
       </div>
     );
