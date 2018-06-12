@@ -282,6 +282,15 @@ input[type=date] {
     margin-top: 30px;
 }
 
+
+/* ------------------------------ */
+/* BANNER STYLING */
+/* ------------------------------ */
+
+#statsBanner {
+    text-align: center;
+}
+
 /* ------------------------------ */
 /* AVERAGE GRAPH STYLING */
 /* ------------------------------ */

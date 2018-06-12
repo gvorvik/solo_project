@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import Nav from '../../components/Nav/Nav';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
+import StatsHeader from '../StatsHeader/StatsHeader';
 import AverageGraph from '../AverageGraph/AverageGraph';
 
 const mapStateToProps = state => ({
@@ -26,6 +27,7 @@ class InfoPage extends Component {
     if (this.props.user.userName) {
       content = (
         <div>
+          <StatsHeader/>
           <AverageGraph />
         </div>
       );
