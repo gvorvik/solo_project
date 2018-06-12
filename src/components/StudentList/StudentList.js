@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
+import Search from '@material-ui/icons/Search';
 
 import StudentCard from '../StudentCard/StudentCard';
 
@@ -49,7 +50,7 @@ class StudentList extends Component {
             <div>
                 <div id="searchDiv">
                     <h1>Search Students</h1>
-                    <input id="searchInput" type="text" placeholder="Student Name" onChange={this.handleChange}/>
+                    <Search style={{height: "30px", width: "30px"}}/><input id="searchInput" type="text" placeholder="Student Name" onChange={this.handleChange} />
                 </div>
                 
                 <Grid container spacing={32}>

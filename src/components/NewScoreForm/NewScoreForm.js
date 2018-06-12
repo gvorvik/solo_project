@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import Date from '@material-ui/icons/DateRange';
+import Note from '@material-ui/icons/Note';
+import Score from '@material-ui/icons/AddBox';
 
 const mapStateToProps = reduxState => ({
     reduxState,
@@ -57,16 +60,16 @@ class NewScoreForm extends Component {
                 <form onSubmit={this.postScore} className="dataForm">
                     <div id="formInputWrapper">
 
-                        <label className="formLabel" htmlFor="score">Words Per Minute</label>
-                        <input onChange={this.handleChange} type="number" name="score" id="score" placeholder="Student Score" />
+                        <Score style={{height: "30px", width: "30px"}}/><label className="formLabel" htmlFor="score">Words Per Minute</label>
+                        <input onChange={this.handleChange} type="number" name="score" id="score" />
 
 
-                        <label className="formLabel" htmlFor="lastName">Date</label>
-                        <input onChange={this.handleChange} type="date" name="date" id="date" />
+                        <Date style={{height: "30px", width: "30px"}}/><label className="formLabel" htmlFor="lastName">Date</label>
+                        <input onChange={this.handleChange} type="date" name="date" id="date"/>
 
 
-                        <label className="formLabel" htmlFor="notes">Notes</label>
-                        <textarea onChange={this.handleChange} type="text" name="notes" id="notes" placeholder="Notes"></textarea>
+                        <Note style={{height: "30px", width: "30px"}}/><label className="formLabel" htmlFor="notes">Notes</label>
+                        <textarea onChange={this.handleChange} type="text" name="notes" id="notes"></textarea>
 
                     </div>
                     <input className="submitData" type="submit" />

@@ -41,6 +41,7 @@ input {
 
 label {
     padding-bottom: 10px;
+    padding-left: 10px;
 }
 
 input[type="submit"] {
@@ -178,34 +179,6 @@ nav {
  }
 
  @media only screen and (max-width: 600px) {
-    /* #navbarList {
-        float: none;
-        padding-top: 5px;
-     }
-    #navbarList li {
-        display: block;
-        font-size: 1.35em;
-    }
-
-    nav {
-        height: 360px;
-    }
-
-    #userPhoto {
-        display: none;
-    }
-
-    #navbarList li:after {
-        display: block;
-        height: 2px;
-        background-color: #e67e22;
-        content: " ";
-        width: 20%;
-        margin: 0 auto;
-        margin-top: 5px;
-        margin-bottom: 5px;   
-    } */
-
     nav {
         display: none;
     }
@@ -226,7 +199,7 @@ nav {
     padding: 10px;
     margin: 20px auto 0;
     width: 70%;
-    display: block;
+    display: inline-block;
     font-size: 1em;
 }
 
@@ -356,6 +329,10 @@ footer {
     height: 150px;
     background-color: #363636;
     margin-top: 30px;
+}
+
+.icon {
+    transform: scale(1.5);
 }
 
 

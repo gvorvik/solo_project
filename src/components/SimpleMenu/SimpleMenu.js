@@ -6,6 +6,7 @@ import {Link} from 'react-router-dom';
 
 import MenuIcon from '@material-ui/icons/Menu';
 
+
 class SimpleMenu extends React.Component {
   constructor(props) {
       super(props);
