@@ -73,14 +73,14 @@ class StudentPage extends Component {
 
     graduateStudent = (id) => {
         axios({
-            method: 'DELETE',
+            method: 'PUT',
             url: `/api/students/${id}`,
         })
         .then((response) => {
             console.log(response.data);
+            this.props.history.push('/user');
         })
         .catch(err => console.log(err));
-        this.props.history.push('/user');
     }
 
 

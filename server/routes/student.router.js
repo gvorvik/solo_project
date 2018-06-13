@@ -111,10 +111,17 @@ router.post('/score', (req, res) => {
 
 });
 
-router.delete('/:id', (req, res) => {
-  const idToDelete = req.params.id;
-  console.log(idToDelete);
-  res.sendStatus(200);
+router.put('/:id', (req, res) => {
+  const idToUpdate = req.params.id;
+  const queryText= `UPDATE "student" SET 
+                    "graduated" = true 
+                    WHERE "id" = $1`;
+  pool.query(queryText, [idToUpdate])
+  .then((response) => {
+    console.log(response);
+    res.sendStatus(200);
+  })
+  .catch(err => res.sendStatus(500));
 })
 
 module.exports = router;
