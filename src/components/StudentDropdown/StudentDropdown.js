@@ -61,7 +61,9 @@ class StudentDropdown extends Component {
     render() {
 
         let students = this.props.reduxState.student.studentReducer.map((student) => {
-            return <MenuItem key={student.id} value={student.id}>{student.first_name} {student.last_name}</MenuItem>
+            if(student.graduated === false) {
+                return <MenuItem key={student.id} value={student.id}>{student.first_name} {student.last_name}</MenuItem>
+            }
         })
 
         return (
