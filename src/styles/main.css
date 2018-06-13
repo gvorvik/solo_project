@@ -289,6 +289,25 @@ input[type=date] {
 
 #statsBanner {
     text-align: center;
+    padding: 20px 0;
+}
+
+.statsBannerDivCard {
+    background-color: #c5c5c5;
+    width: 80%;
+    max-width: 240px;
+    height: 120px;
+    margin: 20px auto;
+    border-radius: 6px;
+    box-shadow: 5px 5px 5px #363636;
+    padding-top: 3px;
+    font-size: 1.2em;
+}
+
+@media only screen and (max-width: 868px) {
+    .statsBannerDivCard {
+        height: 140px;
+    }
 }
 
 /* ------------------------------ */

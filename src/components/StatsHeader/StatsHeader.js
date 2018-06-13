@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
-import axios from 'axios';
+import Face from '@material-ui/icons/Face';
+import Graduate from '@material-ui/icons/School';
+import Priority from '@material-ui/icons/PriorityHigh';
 
 const mapStateToProps = reduxState => ({
     reduxState,
@@ -19,19 +21,28 @@ class StatsHeader extends Component {
 
         return (
             <div id="statsBanner">
-                <h1>Hello Header</h1>
+                <h1>Your Impact</h1>
                 <Grid container spacing={32}>
-                    <Grid item xs={12} sm={6} md={3}>
-                        <div id="studentCountDiv">Hello</div>
+                    <Grid item xs={12} sm={4}>
+                        <div className="statsBannerDivCard">
+                            <Face style={{height: "50px", width: "50px"}}/>
+                            <h3>Students Enrolled</h3>
+                            <p>{this.props.reduxState.student.studentReducer.length}</p>
+                        </div>
                     </Grid>
-                    <Grid item xs={12} sm={6} md={3}>
-                        <div id="studentCountDiv">Goodbye</div>
+                    <Grid item xs={12} sm={4}>
+                        <div className="statsBannerDivCard">
+                            <Priority style={{height: "50px", width: "50px"}}/>
+                            <h3>Sessions Today</h3>
+                            <p>7</p>
+                        </div>
                     </Grid>
-                    <Grid item xs={12} sm={6} md={3}>
-                        <div id="studentCountDiv">Hola</div>
-                    </Grid>
-                    <Grid item xs={12} sm={6} md={3}>
-                        <div id="studentCountDiv">Adios</div>
+                    <Grid item xs={12} sm={4}>
+                        <div className="statsBannerDivCard">
+                            <Graduate style={{height: "50px", width: "50px"}}/>
+                            <h3>Students Graduated</h3>
+                            <p>22</p>
+                        </div>
                     </Grid>
                 </Grid>
 
