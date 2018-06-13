@@ -5,7 +5,7 @@ class Graduate extends Component {
     render() {
         return (
             <div>
-                <button onClick={this.props.graduateStudent}>Push Me</button>
+                <button onClick={() => {this.props.graduateStudent(this.props.studentID)}}>Push Me</button>
             </div>
         );
     }

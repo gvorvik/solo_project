@@ -111,4 +111,10 @@ router.post('/score', (req, res) => {
 
 });
 
+router.delete('/:id', (req, res) => {
+  const idToDelete = req.params.id;
+  console.log(idToDelete);
+  res.sendStatus(200);
+})
+
 module.exports = router;

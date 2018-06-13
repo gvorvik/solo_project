@@ -71,8 +71,15 @@ class StudentPage extends Component {
         })
     }
 
-    graduateStudent = () => {
-        console.log('Button was clicked!');
+    graduateStudent = (id) => {
+        axios({
+            method: 'DELETE',
+            url: `/api/students/${id}`,
+        })
+        .then((response) => {
+            console.log(response.data);
+        })
+        .catch(err => console.log(err));
         this.props.history.push('/user');
     }
 
@@ -94,6 +101,7 @@ class StudentPage extends Component {
                         />
                     <Graduate 
                         graduateStudent={this.graduateStudent}
+                        studentID={this.props.reduxState.student.studentPageID.id}
                     />
                 </div>
             );
