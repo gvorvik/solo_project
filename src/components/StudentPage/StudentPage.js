@@ -7,6 +7,7 @@ import StudentDropdown from '../StudentDropdown/StudentDropdown';
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 import Nav from '../Nav/Nav';
+import Graduate from '../GraduateStudent/GraduateStudent';
 
 
 const mapStateToProps = reduxState => ({
@@ -70,6 +71,11 @@ class StudentPage extends Component {
         })
     }
 
+    graduateStudent = () => {
+        console.log('Button was clicked!');
+        this.props.history.push('/user');
+    }
+
 
     render() {
         let content = null;
@@ -86,6 +92,9 @@ class StudentPage extends Component {
                         notes={this.state.notes}
                         goal={this.state.goal}
                         />
+                    <Graduate 
+                        graduateStudent={this.graduateStudent}
+                    />
                 </div>
             );
         }
