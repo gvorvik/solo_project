@@ -70,7 +70,7 @@ class GradeGraph extends Component {
                     {
                         label: 'Number of Students per Grade',
                         data: [this.state.kindergarten, this.state.firstGrade, this.state.secondGrade, this.state.thirdGrade],
-                        backgroundColor: 'rgba(230, 126, 34, 0.6)'
+                        backgroundColor: ['rgba(230, 126, 34, 0.6)', 'rgba(23, 16, 160, 0.6)', 'rgba(176, 254, 9, 0.6)', 'rgba(178, 25, 180, 0.6)']
                     }
                 ],
             }
