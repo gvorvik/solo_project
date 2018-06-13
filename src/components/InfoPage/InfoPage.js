@@ -6,6 +6,7 @@ import { USER_ACTIONS } from '../../redux/actions/userActions';
 import StatsHeader from '../StatsHeader/StatsHeader';
 import AverageGraph from '../AverageGraph/AverageGraph';
 import ByGradeGraph from '../ByGradeGraph/ByGradeGraph';
+import Grid from '@material-ui/core/Grid';
 
 const mapStateToProps = state => ({
   user: state.user,
@@ -29,8 +30,10 @@ class InfoPage extends Component {
       content = (
         <div>
           <StatsHeader/>
-          <AverageGraph />
-          <ByGradeGraph />
+          <div id="adminGraphWrapper">
+            <AverageGraph />
+            <ByGradeGraph/>
+          </div>
         </div>
       );
     }

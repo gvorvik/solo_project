@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import axios from 'axios';
 
 import { Pie } from 'react-chartjs-2';
 
@@ -80,7 +79,7 @@ class GradeGraph extends Component {
     render() {
 
         return (
-            <div id="averageGraph">
+            <div id="gradeGraph">
                 <Pie
                     data={this.state.chartData}
                     options={{

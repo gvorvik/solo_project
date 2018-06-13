@@ -284,7 +284,7 @@ input[type=date] {
 
 
 /* ------------------------------ */
-/* BANNER STYLING */
+/* ADMIN PAGE STYLING */
 /* ------------------------------ */
 
 #statsBanner {
@@ -304,26 +304,46 @@ input[type=date] {
     font-size: 1.2em;
 }
 
+
+#averageGraph {
+    width: 50%;
+    max-width: 650px;
+    height: 450px;
+    margin: 0 auto;
+    display: inline-block;
+}
+
+#gradeGraph {
+    width: 50%;
+    max-width: 650px;
+    height: 450px;
+    margin: 0 auto;
+    display: inline-block;
+}
+
+#adminGraphWrapper {
+    width: 90%;
+    margin: 0 auto;
+}
+
+
 @media only screen and (max-width: 868px) {
     .statsBannerDivCard {
         height: 140px;
     }
+
+    #averageGraph,
+    #gradeGraph {
+        height: 350px
+    }
 }
 
-/* ------------------------------ */
-/* AVERAGE GRAPH STYLING */
-/* ------------------------------ */
-
-#averageGraph {
-    width: 80%;
-    max-width: 750px;
-    height: 450px;
-    margin: 0 auto;
-}
-
-@media only screen and (max-width: 420px) {
-    #averageGraph {
-        width: 90%;
+@media only screen and (max-width: 599px) {
+    #averageGraph,
+    #gradeGraph {
+        width: 80%;
+        height: 450px;
+        margin-left: 10%;
     }
 }
 
