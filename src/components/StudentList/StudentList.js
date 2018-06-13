@@ -32,18 +32,20 @@ class StudentList extends Component {
         });
 
         let students = filteredStudents.map((student) => {
-            return <Grid key={student.id} item xs={12} sm={6} md={4}> 
-                        <StudentCard
-                            key={student.id}
-                            id={student.id}
-                            firstName={student.first_name}
-                            lastName={student.last_name}
-                            grade={student.grade}
-                            goal={student.goal}
-                            initialScore={student.initial_score}
-                            changePage = {this.props.changePage}
-                        />
-                    </Grid>
+            if(student.graduated === false) {
+                return <Grid key={student.id} item xs={12} sm={6} md={4}> 
+                <StudentCard
+                    key={student.id}
+                    id={student.id}
+                    firstName={student.first_name}
+                    lastName={student.last_name}
+                    grade={student.grade}
+                    goal={student.goal}
+                    initialScore={student.initial_score}
+                    changePage = {this.props.changePage}
+                />
+            </Grid>
+            }
         });
 
         return (
