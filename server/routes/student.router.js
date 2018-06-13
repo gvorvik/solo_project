@@ -79,9 +79,9 @@ router.post('/', (req, res) => {
     if(req.isAuthenticated()) {
       const student = req.body;
       const queryText = `INSERT INTO "student" ("first_name", "last_name", "grade", 
-                        "goal") VALUES ($1, $2, $3, $4);`;
+                        "goal", "graduated") VALUES ($1, $2, $3, $4, $5);`;
       pool.query(queryText, [student.firstName, student.lastName, student.grade,
-                  student.goal])
+                  student.goal, false])
         .then((results) => {
           res.sendStatus(200);
         })

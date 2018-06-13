@@ -12,7 +12,7 @@ class NewStudentForm extends Component {
             firstName: '',
             lastName: '',
             grade: '',
-            goal: 0,
+            goal: '',
         }
     }
 
@@ -36,7 +36,7 @@ class NewStudentForm extends Component {
             firstName: '',
             lastName: '',
             grade: '',
-            goal: 0,
+            goal: '',
         });
     }
 
@@ -48,18 +48,18 @@ class NewStudentForm extends Component {
                     <div id="formInputWrapper">
 
                         <label className="formLabel" htmlFor="firstName">First Name</label>
-                        <input onChange={this.handleChange} type="text" name="firstName" id="firstName" placeholder="First Name" />
+                        <input onChange={this.handleChange} value={this.state.firstName} type="text" name="firstName" id="firstName" placeholder="First Name" />
 
 
                         <label className="formLabel" htmlFor="lastName">Last Name</label>
-                        <input onChange={this.handleChange} type="text" name="lastName" id="lastName" placeholder="Last Name" />
+                        <input onChange={this.handleChange} value={this.state.lastName} type="text" name="lastName" id="lastName" placeholder="Last Name" />
 
 
                         <label className="formLabel" htmlFor="grade">Grade</label>
-                        <input onChange={this.handleChange} type="text" name="grade" id="grade" placeholder="Grade" />
+                        <input onChange={this.handleChange} value={this.state.grade} type="text" name="grade" id="grade" placeholder="Grade" />
 
                         <label className="formLabel" htmlFor="goal">Goal</label>
-                        <input onChange={this.handleChange} type="number" name="goal" id="goal" placeholder="Goal" />
+                        <input onChange={this.handleChange} value={this.state.goal} type="number" name="goal" id="goal" placeholder="Goal" />
 
                     </div>
                     <input className="submitData" type="submit" />

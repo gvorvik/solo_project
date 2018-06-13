@@ -61,15 +61,15 @@ class NewScoreForm extends Component {
                     <div id="formInputWrapper">
 
                         <Score style={{height: "30px", width: "30px"}}/><label className="formLabel" htmlFor="score">Words Per Minute</label>
-                        <input onChange={this.handleChange} type="number" name="score" id="score" />
+                        <input onChange={this.handleChange} value={this.state.score} type="number" name="score" id="score" />
 
 
                         <Date style={{height: "30px", width: "30px"}}/><label className="formLabel" htmlFor="lastName">Date</label>
-                        <input onChange={this.handleChange} type="date" name="date" id="date"/>
+                        <input onChange={this.handleChange} value={this.state.date} type="date" name="date" id="date"/>
 
 
                         <Note style={{height: "30px", width: "30px"}}/><label className="formLabel" htmlFor="notes">Notes</label>
-                        <textarea onChange={this.handleChange} type="text" name="notes" id="notes"></textarea>
+                        <textarea onChange={this.handleChange} value={this.state.notes} type="text" name="notes" id="notes"></textarea>
 
                     </div>
                     <input className="submitData" type="submit" />
