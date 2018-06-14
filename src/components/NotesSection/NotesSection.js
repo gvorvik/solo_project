@@ -27,7 +27,7 @@ class NotesSection extends Component {
 
         return (
             <div style={{width:"90%", margin: "0 auto" }}>
-                <h1>Notes Section</h1>
+                <h1 id="notesHeader">Notes</h1>
                 <Table>
                     <TableHead>
                         <TableRow>

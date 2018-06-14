@@ -92,6 +92,7 @@ class StudentPage extends Component {
                 <div>
                     <Nav />
                     <h1 id="studentPageHeader">{this.props.reduxState.student.studentPageID.firstName} {this.props.reduxState.student.studentPageID.lastName}</h1>
+                    <h2 id="goalHeader">Goal: {this.props.reduxState.student.studentPageID.goal} words per minute</h2>
                     <StudentDropdown getStudentScores={this.getStudentScores} />
                     <ScoreChart 
                         getStudentScores={this.getStudentScores} 

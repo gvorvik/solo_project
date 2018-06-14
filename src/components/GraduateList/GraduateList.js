@@ -6,7 +6,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 
 const GraduateTable = (props) => {
-    return <div>
+    return <div id="graduatedStudentsDiv">
         <h1>Graduated Students</h1>
         <Table>
             <TableHead>

@@ -11,6 +11,11 @@ body {
     text-align: right;
 }
 
+h1,
+h2,
+h3 {
+    font-weight: 200;
+}
 
 .instructions {
     background-color: #363636;
@@ -272,15 +277,40 @@ input[type=date] {
     margin: 15px 0;
 }
 
+/* ------------------------------ */
+/* NOTES PAGE STYLING */
+/* ------------------------------ */
+
+#notesHeader {
+    text-align: center;
+    margin: 30px 0 15px;
+}
+
+#notesHeader:after {
+    display: block;
+    height: 2px;
+    background-color: #e67e22;
+    content: " ";
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 30px  
+}
+
 
 /* ------------------------------ */
 /* CHART PAGE STYLING */
 /* ------------------------------ */
 
-#studentPageHeader {
+#studentPageHeader,
+#goalHeader {
     text-align: center;
-    margin-top: 30px;
+    margin-top: 20px;
 }
+
+#goalHeader {
+    margin-bottom: 20px;
+}
+
 
 
 /* ------------------------------ */
@@ -324,6 +354,11 @@ input[type=date] {
 #adminGraphWrapper {
     width: 90%;
     margin: 0 auto;
+}
+
+#graduatedStudentsDiv {
+    text-align: center;
+    margin: 50px 0;
 }
 
 
