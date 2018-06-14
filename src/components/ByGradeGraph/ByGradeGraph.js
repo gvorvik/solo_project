@@ -40,17 +40,21 @@ class GradeGraph extends Component {
         let second = 0;
         let third = 0;
         this.props.reduxState.student.studentReducer.forEach((student) => {
-            switch (student.grade) {
-                case 'K':
-                    return k = ++k;
-                case '1':
-                    return first = ++first;
-                case '2':
-                    return second = ++second;
-                case '3':
-                    return third = ++third;
-                default:
-                    return this.state;
+            if(student.graduated === false) {
+                switch (student.grade) {
+                    case 'K':
+                        return k = ++k;
+                    case '1':
+                        return first = ++first;
+                    case '2':
+                        return second = ++second;
+                    case '3':
+                        return third = ++third;
+                    default:
+                        return this.state;
+                }
+            } else {
+                return null;
             }
         })
         this.setState({
