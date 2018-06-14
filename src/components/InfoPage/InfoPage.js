@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import TableCell from '@material-ui/core/TableCell';
+import TableRow from '@material-ui/core/TableRow';
 
 import Nav from '../../components/Nav/Nav';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
@@ -26,9 +28,10 @@ class InfoPage extends Component {
 
   render() {
     let content = null;
+    
     let graduates = this.props.student.studentReducer.map((student) => {
       if (student.graduated === true) {
-        return <li>{student.first_name} {student.last_name}</li>
+        return <TableRow><TableCell>{student.first_name} {student.last_name}</TableCell><TableCell>{student.grade}</TableCell></TableRow>
       } else {
         return null
       }
@@ -43,7 +46,6 @@ class InfoPage extends Component {
             <ByGradeGraph />
           </div>
           <GraduateTable graduates={graduates}/>
-          <ul>{graduates}</ul>
         </div>
       );
     }
