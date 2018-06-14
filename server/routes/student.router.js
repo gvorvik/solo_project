@@ -46,6 +46,7 @@ router.get('/average', (req, res) => {
       pool.query(`SELECT AVG("scores"."score"), "student"."grade"
               FROM "scores"
               JOIN "student" ON "scores"."student_id"="student"."id"
+              WHERE "student"."graduated"=false
               GROUP BY "student"."grade"
               ORDER BY "avg";`)
     .then((results) => {
