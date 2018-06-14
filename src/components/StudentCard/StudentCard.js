@@ -15,14 +15,15 @@ const mapStateToProps = reduxState => ({
 
 class StudentCard extends Component {
 
-  sendStudentIdToReduxStore = (id, firstName, lastName) => {
+  sendStudentIdToReduxStore = (id, firstName, lastName, goal) => {
     console.log('click logged', id);
     const action = {
       type: STUDENT_ACTIONS.SET_STUDENT_ID_IN_STORE,
       payload: {
         id,
         firstName,
-        lastName
+        lastName,
+        goal,
       },
     }
     this.props.dispatch(action);
@@ -36,7 +37,6 @@ class StudentCard extends Component {
   render() {
 
     let number = this.randomNumber();
-    console.log(number);
     let imgText= `/images/greg_orvik.${number}.jpg`
 
     return (
@@ -56,7 +56,7 @@ class StudentCard extends Component {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button onClick={() => this.sendStudentIdToReduxStore(this.props.id, this.props.firstName, this.props.lastName)}>Go To Student</Button>
+            <Button onClick={() => this.sendStudentIdToReduxStore(this.props.id, this.props.firstName, this.props.lastName, this.props.goal)}>Go To Student</Button>
           </CardActions>
         </Card>
       </div>
