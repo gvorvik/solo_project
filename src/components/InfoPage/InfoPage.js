@@ -6,14 +6,16 @@ import { USER_ACTIONS } from '../../redux/actions/userActions';
 import StatsHeader from '../StatsHeader/StatsHeader';
 import AverageGraph from '../AverageGraph/AverageGraph';
 import ByGradeGraph from '../ByGradeGraph/ByGradeGraph';
+import GraduateTable from '../GraduateList/GraduateList';
 
 const mapStateToProps = state => ({
   user: state.user,
+  student: state.student
 });
 
 class InfoPage extends Component {
   componentDidMount() {
-    this.props.dispatch({type: USER_ACTIONS.FETCH_USER});
+    this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
   }
 
   componentDidUpdate() {
@@ -24,15 +26,24 @@ class InfoPage extends Component {
 
   render() {
     let content = null;
+    let graduates = this.props.student.studentReducer.map((student) => {
+      if (student.graduated === true) {
+        return <li>{student.first_name} {student.last_name}</li>
+      } else {
+        return null
+      }
+    });
 
     if (this.props.user.userName) {
       content = (
         <div>
-          <StatsHeader/>
+          <StatsHeader />
           <div id="adminGraphWrapper">
             <AverageGraph />
-            <ByGradeGraph/>
+            <ByGradeGraph />
           </div>
+          <GraduateTable graduates={graduates}/>
+          <ul>{graduates}</ul>
         </div>
       );
     }
@@ -40,7 +51,7 @@ class InfoPage extends Component {
     return (
       <div>
         <Nav />
-        { content }
+        {content}
       </div>
     );
   }

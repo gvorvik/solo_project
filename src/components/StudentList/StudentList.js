@@ -28,7 +28,7 @@ class StudentList extends Component {
 
         let filteredStudents = this.props.reduxState.student.studentReducer.filter((contact) => {
             return contact.first_name.indexOf(this.state.search) !== -1 ||
-                   contact.last_name.indexOf(this.state.search) !== -1 ;
+                   contact.last_name.indexOf(this.state.search) !== -1;
         });
 
         let students = filteredStudents.map((student) => {
@@ -45,6 +45,8 @@ class StudentList extends Component {
                     changePage = {this.props.changePage}
                 />
             </Grid>
+            } else {
+                return null;
             }
         });
 
