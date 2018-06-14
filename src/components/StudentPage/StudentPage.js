@@ -99,7 +99,7 @@ class StudentPage extends Component {
                         chartData={this.state.chartData}
                         notes={this.state.notes}
                         goal={this.state.goal}
-                        />
+                    />
                     <Graduate 
                         graduateStudent={this.graduateStudent}
                         studentID={this.props.reduxState.student.studentPageID.id}

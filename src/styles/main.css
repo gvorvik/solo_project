@@ -208,6 +208,17 @@ nav {
     font-size: 1em;
 }
 
+#searchIcon {
+    height: 30px;
+    width: 30px;
+    margin-top: 10px;
+}
+
+#searchIconDiv {
+    display: inline-block;
+    margin-top: 20px;
+}
+
 
 /* ------------------------------ */
 /* FORM STYLING */

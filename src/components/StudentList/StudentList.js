@@ -54,7 +54,8 @@ class StudentList extends Component {
             <div>
                 <div id="searchDiv">
                     <h1>Search Students</h1>
-                    <Search style={{height: "30px", width: "30px"}}/><input id="searchInput" type="text" placeholder="Student Name" onChange={this.handleChange} />
+                    <div id="searchIconDiv"><Search id="searchIcon"/></div>
+                    <input id="searchInput" type="text" placeholder="Student Name" onChange={this.handleChange} />
                 </div>
                 
                 <Grid container spacing={32}>

@@ -23,7 +23,13 @@ class Nav extends Component {
 
   render() {
 
-    const imgPath = `images/${this.props.reduxState.user.welcomeUser.img_path}`;
+    let imgPath; 
+    
+    if (this.props.reduxState.user.welcomeUser.img_path === null) {
+      imgPath = 'images/Insert_Here.jpg';
+    } else {
+      imgPath = `images/${this.props.reduxState.user.welcomeUser.img_path}`;
+    }
 
     return <nav>
     <div className="row">
