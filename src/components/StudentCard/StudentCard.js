@@ -30,14 +30,9 @@ class StudentCard extends Component {
     this.props.changePage();
   }
 
-  randomNumber = () => {
-    return Math.floor((Math.random()*6) + 1)
-  }
-
   render() {
 
-    let number = this.randomNumber();
-    let imgText= `/images/greg_orvik.${number}.jpg`
+    let imgText= `/images/${this.props.firstName}.${this.props.lastName}.jpg`
 
     return (
       <div className="cardWrapper">
