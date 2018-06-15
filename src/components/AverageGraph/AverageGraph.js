@@ -38,7 +38,7 @@ class AverageGraph extends Component {
                         datasets: [
                             {
                                 label: 'Average By Grade',
-                                data: response.data.map(score => score.avg),
+                                data: response.data.map(score => Number(score.avg).toFixed(2)),
                                 backgroundColor: 'rgba(230, 126, 34, 0.6)'
                             }
                         ],
